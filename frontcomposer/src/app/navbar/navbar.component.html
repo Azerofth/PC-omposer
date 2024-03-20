@@ -1,17 +1,19 @@
+
 <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+    <a  routerLink="/home" routerLinkActive="active-link" class="no-underline flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <span class="ml-3 text-xl">PC-omposer</span>
     </a>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a routerLink="/home" routerLinkActive="active-link" class="mr-5 hover:text-gray-900">Home</a>
-      <a routerLink="/dashboard" routerLinkActive="active-link" class="mr-5 hover:text-gray-900">Dashboard</a>
-      <a routerLink="/login" routerLinkActive="active-link"class="mr-5 hover:text-gray-900">Login</a>
-      <a routerLink="/about" routerLinkActive="active-link"class="mr-5 hover:text-gray-900">About us</a>
-      <a routerLink="/pcbuilder" routerLinkActive="active-link"class="mr-5 hover:text-gray-900">Pc Builder</a>
+    <nav class="no-underline md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a routerLink="/home" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Home</a>
+      <a routerLink="/dashboard" routerLinkActive="active-link" class=" no-underline mr-5 hover:text-gray-900">Dashboard</a>
+      <a routerLink="/login" routerLinkActive="active-link"class="no-underline mr-5 hover:text-gray-900">Login</a>
+      <a routerLink="/about" routerLinkActive="active-link"class="no-underline mr-5 hover:text-gray-900">About us</a>
+      <a routerLink="/pcbuilderhome" routerLinkActive="active-link"class="no-underline mr-5 hover:text-gray-900">Pc Builder</a>
     </nav>
   </div>
 </header>
+<title>PC-omposer</title>
 
 <router-outlet></router-outlet>
 
@@ -20,8 +22,8 @@
     <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
       <span class="ml-3 text-xl">PC-omposer</span>
     </a>
-    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 XenonTechnolgies
-      <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank"> &#64;Azerofth</a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 XenonTechnologies
+      <a href="https://www.linkedin.com/in/mylessoh/" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank"> &#64;Azerofth</a>
     </p>
   </div>
 </footer>

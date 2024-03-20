@@ -29,6 +29,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
+CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,11 +80,12 @@ WSGI_APPLICATION = 'backpcomposer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pc-composer',
+        'NAME': 'pc-omposer',
         'USER': 'postgres',
         'PASSWORD': 'Nice10day',
         'HOST': 'localhost',   # Assuming your database is running locally
         'PORT': '5432',        # Default PostgreSQL port
+        'CONN_MAX_AGE': 5,
     }
 }
 

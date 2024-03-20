@@ -9,11 +9,7 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  navOpen: boolean = false;
   constructor(public router: Router, private primengConfig: PrimeNGConfig){}
-  toggleNav(): void {
-    this.navOpen = !this.navOpen;
-  }
   ngOnInit() {
     this.primengConfig.ripple = true;
 }}
