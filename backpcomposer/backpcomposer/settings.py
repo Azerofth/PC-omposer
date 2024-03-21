@@ -35,12 +35,14 @@ SESSION_COOKIE_SECURE = True
 CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
+    'myapi.apps.MyapiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'backpcomposer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pc-omposer',
+        'NAME': 'pc-composer',
         'USER': 'postgres',
         'PASSWORD': 'Nice10day',
         'HOST': 'localhost',   # Assuming your database is running locally
@@ -114,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kuala_Lumpur'
 
 USE_I18N = True
 
@@ -130,3 +132,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL_HOST_USER can change to different email accounts according to EMAIL_HOST
+# EMAIL_HOST can be changed to other email smtp services
+# 1. Gmail: smtp.gmail.com
+# 2. Outlook: smtp-mail.outlook.com
+# 3. Yahoo: smtp.mail.yahoo.com
+# EMAIL_HOST_PASSWORD need to use app password of the account. Docs: https://support.google.com/accounts/answer/185833?hl=en
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'melestesting@gmail.com'
+EMAIL_HOST_PASSWORD = 'hqtajphhhzgjhegy'

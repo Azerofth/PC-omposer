@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { LoginComponent } from './login/login.component';
-import { NavbarComponent } from './navbar/navbar.component';
+
+//Angular modules
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,11 +12,15 @@ import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
 
+//Website components
 import { PartslistComponent } from './pcbuilder/partslist/partslist.component';
 import { PartspickerComponent } from './pcbuilder/partspicker/partspicker.component';
 import { PcbuilderhomeComponent } from './pcbuilder/pcbuilderhome/pcbuilderhome.component';
-import { RegistrationComponent } from './registration/registration.component';
-
+import { LoginComponent } from './accounts/login/login.component';
+import { RegistrationComponent } from './accounts/registration/registration.component';
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -44,7 +46,6 @@ import { RegistrationComponent } from './registration/registration.component';
     ButtonModule,
     CheckboxModule,
     InputTextModule,
-    // PickListModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

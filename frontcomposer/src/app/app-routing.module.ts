@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { AboutComponent } from './about/about.component';
-import { LogoutComponent } from './logout/logout.component';
 import { PartspickerComponent } from './pcbuilder/partspicker/partspicker.component';
 import { PartslistComponent } from './pcbuilder/partslist/partslist.component';
 import { PcbuilderhomeComponent } from './pcbuilder/pcbuilderhome/pcbuilderhome.component';
+import { LoginComponent } from './accounts/login/login.component';
+import { LogoutComponent } from './accounts/logout/logout.component';
+import { RegistrationComponent } from './accounts/registration/registration.component';
 
 
 const routes: Routes =[
