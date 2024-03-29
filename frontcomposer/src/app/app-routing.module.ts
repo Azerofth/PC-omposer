@@ -5,7 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PartspickerComponent } from './pcbuilder/partspicker/partspicker.component';
-import { PartslistComponent } from './pcbuilder/partslist/partslist.component';
+import { AdventurebuildComponent } from './pcbuilder/adventurebuild/adventurebuild.component';
 import { PcbuilderhomeComponent } from './pcbuilder/pcbuilderhome/pcbuilderhome.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { LogoutComponent } from './accounts/logout/logout.component';
@@ -21,7 +21,7 @@ const routes: Routes =[
   { path: 'registration', component: RegistrationComponent},
   { path: 'pcbuilderhome', component: PcbuilderhomeComponent},
   { path: 'partspicker', component: PartspickerComponent},
-  { path: 'partslist', component: PartslistComponent},
+  { path: 'adventurebuild', component: AdventurebuildComponent}
 
 ]
 

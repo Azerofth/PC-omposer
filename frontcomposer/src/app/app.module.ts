@@ -11,9 +11,13 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 import { InputTextModule } from 'primeng/inputtext';
+import { DataViewModule } from 'primeng/dataview';
+import { PaginatorModule } from 'primeng/paginator';
+import { RatingModule } from 'primeng/rating';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Website components
-import { PartslistComponent } from './pcbuilder/partslist/partslist.component';
+import { AdventurebuildComponent } from './pcbuilder/adventurebuild/adventurebuild.component';
 import { PartspickerComponent } from './pcbuilder/partspicker/partspicker.component';
 import { PcbuilderhomeComponent } from './pcbuilder/pcbuilderhome/pcbuilderhome.component';
 import { LoginComponent } from './accounts/login/login.component';
@@ -21,6 +25,7 @@ import { RegistrationComponent } from './accounts/registration/registration.comp
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutComponent } from './accounts/logout/logout.component';
 
 
 @NgModule({
@@ -31,9 +36,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     NavbarComponent,
     PcbuilderhomeComponent,
-    PartslistComponent,
+    AdventurebuildComponent,
     PartspickerComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LogoutComponent
 
 
   ],
@@ -46,6 +52,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     ButtonModule,
     CheckboxModule,
     InputTextModule,
+    DataViewModule,
+    PaginatorModule,
+    RatingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],
