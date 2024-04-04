@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

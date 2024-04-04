@@ -15,6 +15,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { PaginatorModule } from 'primeng/paginator';
 import { RatingModule } from 'primeng/rating';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 //Website components
 import { AdventurebuildComponent } from './pcbuilder/adventurebuild/adventurebuild.component';
@@ -56,6 +57,7 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     PaginatorModule,
     RatingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

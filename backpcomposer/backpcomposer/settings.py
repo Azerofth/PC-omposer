@@ -25,10 +25,11 @@ SECRET_KEY = 'django-insecure-$_@7z7*_mg#-boi4n^gw8jnn74w2_t1fc3gj_bd_)o67wj*6yu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
-
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1/', 'http://localhost/']
+# CSRF_TRUSTED_ORIGINS = ['http://localhost']
 # Application definition
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
@@ -90,8 +91,8 @@ DATABASES = {
         'NAME': 'pc-composer',
         'USER': 'postgres',
         'PASSWORD': 'Nice10day',
-        'HOST': 'localhost',   # Assuming your database is running locally
-        'PORT': '5432',        # Default PostgreSQL port
+        'HOST': '127.0.0.1',
+        'PORT': '5432',       
         'CONN_MAX_AGE': 5,
     }
 }
@@ -131,22 +132,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-REST_FRAMEWORK = {
-   'DEFAULT_PERMISSION_CLASSES': [
-       'rest_framework.permissions.IsAuthenticated',
-   ],
-   'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.SessionAuthentication',
-       'rest_framework.authentication.TokenAuthentication',
-   )
-}
 
 CORS_ALLOWED_ORIGINS = [
    "http://localhost:4200",
