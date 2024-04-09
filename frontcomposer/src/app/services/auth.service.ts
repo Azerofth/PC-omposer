@@ -10,15 +10,16 @@ export class AuthService {
   logout(): void {
     // logout function
   }
-  login(email: string, password: string): void {
+  login(username: string, password: string): void {
     // login function
-    console.log(email);
+    console.log(username);
     console.log(password);
-    this.service.post('login/', {email, password})
+    this.service.post('login/', {username, password})
       .subscribe(
         (response: any) => {
           if (response.status === 'ok') {
             console.log(response.status)
+            this.router.navigate(['dashboard/']);
           } else {
             console.log(response.status);
           }

@@ -22,7 +22,7 @@ export class RegistrationComponent {
       email: ['', Validators.required],
       password: ['', Validators.required],
       phone_number: ['', Validators.required],
-      verification: ['False']
+      verification: ['True']
     });
   }
 

@@ -17,12 +17,12 @@ export class LoginComponent {
     private authservice: AuthService
   ){
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
   onSubmit(){
-    this.authservice.login(this.loginForm.value.email, this.loginForm.value.password);
+    this.authservice.login(this.loginForm.value.username, this.loginForm.value.password);
   }
   ngOnInit() {
     this.primengConfig.ripple = true;

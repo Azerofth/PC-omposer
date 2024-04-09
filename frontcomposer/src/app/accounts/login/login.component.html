@@ -9,10 +9,10 @@
                 </div>
 
                 <div>
-                    <label for="email" class="block text-900 text-xl font-medium mb-2">Email</label>
+                    <label for="username" class="block text-900 text-xl font-medium mb-2">Username</label>
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-group"> 
-                            <input type="email" id="email" formControlName="email" class="form-control" placeholder="Email address" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
+                            <input type="username" id="username" formControlName="username" class="form-control" placeholder="Username" pInputText class="w-full md:w-30rem mb-5" style="padding:1rem">
                         </div>
                         <label for="password1" class="block text-900 font-medium text-xl mb-2">Password</label>
                         <div class="form-group">

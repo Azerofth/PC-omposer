@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import JsonResponse
 from .models import *
+from django.contrib.auth.models import User as ActUser
 from .serializer import *
 from rest_framework import viewsets
 from rest_framework.response import Response
@@ -72,7 +73,12 @@ def register_view(request):
 
             if username and password and email:
                 # Create a new user object
-                new_user = User.objects.create(
+                new_user1 = ActUser.objects.create_user(
+                    username=username,
+                    email=email,
+                    password=password,  # You should hash the password before saving it to the database
+                )
+                new_user2 = User.objects.create(
                     username=username,
                     email=email,
                     password=password,  # You should hash the password before saving it to the database
@@ -80,7 +86,8 @@ def register_view(request):
                     verification=verification
                 )
                 # Save the user object to the database
-                new_user.save()
+                new_user1.save()
+                new_user2.save()
             return JsonResponse({'status': 'ok'})
         else:
             print("Invalid username or password")

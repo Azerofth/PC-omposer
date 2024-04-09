@@ -16,6 +16,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { RatingModule } from 'primeng/rating';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StepperModule } from 'primeng/stepper';
+import { CarouselModule } from 'primeng/carousel';
+
 
 //Website components
 import { AdventurebuildComponent } from './pcbuilder/adventurebuild/adventurebuild.component';
@@ -58,6 +61,8 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     RatingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StepperModule,
+    CarouselModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],
