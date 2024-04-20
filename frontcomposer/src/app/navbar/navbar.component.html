@@ -5,6 +5,65 @@
       <span class="ml-3 font-bold text-3xl">PC-omposer</span>
     </a>
     <nav class="no-underline md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a  routerLink="/home" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Home</a>
+      <a routerLink="/dashboard" routerLinkActive="active-link"
+        class=" no-underline mr-5 hover:text-gray-900">Dashboard</a>
+      <a routerLink="/about" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">About us</a>
+      <a routerLink="/pcbuilderhome" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Pc
+        Builder</a>
+        <a *ngIf="isLoggedIn()" routerLink="/logout" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Logout</a>
+        <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Login</a>
+    </nav>
+  </div>
+  <title>PC-omposer</title>
+</header>
+
+<router-outlet></router-outlet>
+
+
+<!-- <footer class="text-gray-600 body-font"> -->
+<!-- ngIf  *ngIf=" router.url !== '/login' && router.url !== '/logout' && router.url !== '/registration'"  -->
+<!-- <div class="container px-5 py-8 flex items-center sm:flex-row flex-col">
+    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+      <span class="font-bold ml-3 text-3xl">PC-omposer</span>
+    </a>
+    <p class="text-l text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Azerofth
+      <a href="https://www.linkedin.com/in/mylessoh/" class="text-gray-600 ml-1 pi pi-linkedin" rel="noopener noreferrer" target="_blank"></a>
+    </p>
+  </div>
+</footer> -->
+
+<footer class="surface-section py-6 flex flex-column sm:flex-row align-items-center justify-content-between">
+  <div class="flex flex-nowap font-medium">
+    <a routerLink="/home" routerLinkActive="active-link"
+      class="no-underline flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <span class="ml-3 font-bold text-3xl">PC-omposer</span>
+    </a>
+    <a pripple
+      class="p-ripple p-element cursor-pointer block text-700 py-2 px-3 transition-colors transition-duration-150 hover:surface-300 border-round hover:text-900">
+      Home
+      <span class="p-ink"></span>
+    </a>
+    <a pripple
+      class="p-ripple p-element cursor-pointer block text-700 py-2 px-3 transition-colors transition-duration-150 hover:surface-300 border-round hover:text-900">
+      Dashboard
+      <span class="p-ink"></span>
+    </a>
+    <a pripple  routerLink="/about" routerLinkActive="active-link"
+      class="p-ripple p-element no-underline cursor-pointer block text-700 py-2 px-3 transition-colors transition-duration-150 hover:surface-300 border-round hover:text-900">
+      About Us
+      <span class="p-ink"></span>
+    </a>
+  </div>
+</footer>
+
+<!-- <footer class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center bg-gray-300">
+    <a routerLink="/home" routerLinkActive="active-link"
+      class="no-underline flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <span class="ml-3 font-bold text-3xl">PC-omposer</span>
+    </a>
+    <nav class="no-underline md:ml-auto flex flex-wrap items-center text-base justify-center">
       <a routerLink="/home" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Home</a>
       <a routerLink="/dashboard" routerLinkActive="active-link"
         class=" no-underline mr-5 hover:text-gray-900">Dashboard</a>
@@ -15,53 +74,4 @@
     </nav>
   </div>
   <title>PC-omposer</title>
-</header>
-
-<router-outlet></router-outlet>
-
-
-<footer class="text-gray-600 body-font">
-  <!-- ngIf  *ngIf=" router.url !== '/login' && router.url !== '/logout' && router.url !== '/registration'"  -->
-  <!-- <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-      <span class="font-bold ml-3 text-3xl">PC-omposer</span>
-    </a>
-    <p class="text-l text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2024 Azerofth
-      <a href="https://www.linkedin.com/in/mylessoh/" class="text-gray-600 ml-1 pi pi-linkedin" rel="noopener noreferrer" target="_blank"></a>
-    </p>
-  </div> -->
-
-  <div class="surface-section px-4 py-8 md:px-6 lg:px-8 text-center">
-    <div class="mb-3 font-bold text-3xl">
-      <span class="text-900">One Product, </span>
-      <span class="text-blue-600">Many Solutions</span>
-    </div>
-    <div class="text-700 mb-6">Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna.</div>
-    <div class="grid">
-      <div class="col-12 md:col-4 mb-4 px-5">
-        <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-          <i class="pi pi-globe text-4xl text-blue-500"></i>
-        </span>
-        <div class="text-900 text-xl mb-3 font-medium">Fast & Global Support</div>
-        <span class="text-700 line-height-3">Fermentum et sollicitudin ac orci phasellus egestas tellus rutrum
-          tellus.</span>
-      </div>
-      <div class="col-12 md:col-4 mb-4 px-5">
-        <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-          <i class="pi pi-github text-4xl text-blue-500"></i>
-        </span>
-        <div class="text-900 text-xl mb-3 font-medium">Open Source</div>
-        <span class="text-700 line-height-3">Nec tincidunt praesent semper feugiat. Sed adipiscing diam donec adipiscing
-          tristique risus nec feugiat. </span>
-      </div>
-      <div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
-        <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-          <i class="pi pi-shield text-4xl text-blue-500"></i>
-        </span>
-        <div class="text-900 text-xl mb-3 font-medium">Trusted Securitty</div>
-        <span class="text-700 line-height-3">Mattis rhoncus urna neque viverra justo nec ultrices. Id cursus metus
-          aliquam eleifend.</span>
-      </div>
-    </div>
-  </div>
-</footer>
+</footer> -->

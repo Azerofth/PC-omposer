@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StepperModule } from 'primeng/stepper';
 import { CarouselModule } from 'primeng/carousel';
+import { ImageModule } from 'primeng/image';
+
 
 
 //Website components
@@ -63,6 +65,7 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     HttpClientModule,
     StepperModule,
     CarouselModule,
+    ImageModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

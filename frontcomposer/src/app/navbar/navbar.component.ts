@@ -9,7 +9,12 @@ import { PrimeNGConfig } from 'primeng/api';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return token === 'loggedin';
+  }
   constructor(public router: Router, private primengConfig: PrimeNGConfig){}
   ngOnInit() {
     this.primengConfig.ripple = true;
+    
 }}

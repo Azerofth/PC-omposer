@@ -2,7 +2,19 @@
     <p-stepperPanel header="Start your adventure!">
         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Content I</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    A new challenge has appeared! You've discovered the ancient
+                    ruins of a lost civilization. 
+                    <br/>
+                    Inside these ruins, you've unearthed
+                    functioning PC parts. 
+                    <br/>
+                    Your mission — should you choose to
+                    accept it — is to travel through, collecting these essential
+                    parts and assembling them into a working gaming PC!
+                    <br/> 
+                    This guide will help you on your quest.
+                </div> 
             </div>
             <div class="flex py-4">
                 <p-button label="Next" (onClick)="nextCallback.emit()" /></div
@@ -11,7 +23,10 @@
     <p-stepperPanel header="Chapter 1: CPU">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">CPU</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    CPU
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="5"></p-paginator> 
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
@@ -21,7 +36,10 @@
     <p-stepperPanel header="Chapter 2: RAM">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">RAM</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    RAM
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
@@ -31,7 +49,10 @@
     <p-stepperPanel header="Chapter 3: Storage">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Storage</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    Storage
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
@@ -41,7 +62,10 @@
     <p-stepperPanel header="Chapter 4: GPU">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">GPU</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    GPU
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
@@ -51,7 +75,10 @@
     <p-stepperPanel header="Chapter 5: Motherboard">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">Motherboard</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    Motherboard
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
@@ -61,7 +88,10 @@
     <p-stepperPanel header="Final chapter: The computer">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">The computer</div>
+                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    The computer
+                </div>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
             <div class="flex py-4">
                 <p-button label="Back" (onClick)="prevCallback.emit()" /></div

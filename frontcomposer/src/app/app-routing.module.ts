@@ -10,6 +10,8 @@ import { PcbuilderhomeComponent } from './pcbuilder/pcbuilderhome/pcbuilderhome.
 import { LoginComponent } from './accounts/login/login.component';
 import { LogoutComponent } from './accounts/logout/logout.component';
 import { RegistrationComponent } from './accounts/registration/registration.component';
+import { PromptComponent } from './prompt/prompt.component';
+
 
 
 const routes: Routes =[
@@ -21,7 +23,8 @@ const routes: Routes =[
   { path: 'registration', component: RegistrationComponent},
   { path: 'pcbuilderhome', component: PcbuilderhomeComponent},
   { path: 'partspicker', component: PartspickerComponent},
-  { path: 'adventurebuild', component: AdventurebuildComponent}
+  { path: 'adventurebuild', component: AdventurebuildComponent},
+  {path: 'prompt', component: PromptComponent},
 
 ]
 

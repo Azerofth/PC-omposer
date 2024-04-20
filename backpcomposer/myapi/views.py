@@ -1,6 +1,6 @@
 import json
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from .models import *
 from django.contrib.auth.models import User as ActUser
@@ -27,7 +27,11 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 print(f"Welcome, {username}")
-                return JsonResponse({'status': 'ok'})
+                token = request.session.get('token','loggedin')
+                print(f"Token: {token}")
+                response = JsonResponse({'token': token})
+                return response
+                
             else:
                 print("Invalid username or password")
                 return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
@@ -38,7 +42,7 @@ def login_view(request):
 
 class userViewset(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializers = userSerializer
+    serializer_class = userSerializer
 
     #to check if user has an account
     @action(detail=False, methods=['post'])
@@ -70,7 +74,6 @@ def register_view(request):
         print(f'Verification: {verification}')
         if email is not None and password is not None:
             print(f"Welcome, {username}")
-
             if username and password and email:
                 # Create a new user object
                 new_user1 = ActUser.objects.create_user(
@@ -95,11 +98,46 @@ def register_view(request):
     else:
         return JsonResponse({'status': 'failed', 'reason': 'Invalid method'}, status=405)
     
-
+@csrf_exempt
+def logout_view(request):
+    if request.method =='POST':
+        logout(request)
+        return JsonResponse({'status': 'ok'})
+    else:
+        print("Logout failed")
+        return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
 
 
 class cpuViewset(viewsets.ModelViewSet):
-    cpu_queryset = CPU.objects.all()
+    queryset = CPU.objects.all()
     serializer_class = CPUSerializer
+
+class gpuViewset(viewsets.ModelViewSet):
+    queryset = GPU.objects.all()
+    serializer_class = GPUSerializer
+
+class ramViewset(viewsets.ModelViewSet):
+    queryset = RAM.objects.all()
+    serializer_class = RAMSerializer
+
+class motherboardViewset(viewsets.ModelViewSet):
+    queryset = Motherboard.objects.all()
+    serializer_class = MotherboardSerializer
+
+class caseViewset(viewsets.ModelViewSet):
+    queryset = Case.objects.all()
+    serializer_class = CaseSerializer
+
+class computerViewset(viewsets.ModelViewSet):
+    queryset = Computer.objects.all()
+    serializer_class = ComputerSerializer
+
+class storageViewset(viewsets.ModelViewSet):
+    queryset = Storage.objects.all()
+    serializer_class = StorageSerializer
+
+class powerSupplyViewset(viewsets.ModelViewSet):
+    queryset = PowerSupply.objects.all()
+    serializer_class = Power_SupplySerializer
 
 
