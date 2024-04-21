@@ -24,7 +24,7 @@ const routes: Routes =[
   { path: 'pcbuilderhome', component: PcbuilderhomeComponent},
   { path: 'partspicker', component: PartspickerComponent},
   { path: 'adventurebuild', component: AdventurebuildComponent},
-  {path: 'prompt', component: PromptComponent},
+  { path: 'prompt', component: PromptComponent},
 
 ]
 

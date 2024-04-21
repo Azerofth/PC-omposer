@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StepperModule } from 'primeng/stepper';
 import { CarouselModule } from 'primeng/carousel';
 import { ImageModule } from 'primeng/image';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 
 
@@ -66,6 +67,7 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     StepperModule,
     CarouselModule,
     ImageModule,
+    TabMenuModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

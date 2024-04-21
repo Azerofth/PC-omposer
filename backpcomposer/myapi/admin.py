@@ -32,5 +32,5 @@ class Motherboard(admin.ModelAdmin):
 
 @admin.register(Computer)
 class Computer(admin.ModelAdmin):
-    list_display = ['cpu_name','motherboard', 'ram', 'storage', 'gpu_name', 'power_supply', 'case', 'user']
+    list_display = ['cpu_name','motherboard', 'ram', 'storage', 'gpu_name', 'power_supply', 'case', 'user', 'likes']
 

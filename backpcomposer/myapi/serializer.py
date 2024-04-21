@@ -5,7 +5,7 @@ class ComputerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Computer
         fields = ('cpu_name','motherboard','ram','storage'
-                  ,'gpu_name','power_supply','case', 'user')
+                  ,'gpu_name','power_supply','case', 'user', 'likes')
         
 class userSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

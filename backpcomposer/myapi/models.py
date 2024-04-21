@@ -73,5 +73,6 @@ class Computer(models.Model):
     power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE)
     case = models.ForeignKey(Case, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.IntegerField()
 
 

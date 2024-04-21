@@ -1,100 +1,301 @@
-<p-stepper orientation="vertical">
+<h1 class="text-5xl font-bold">Welcome to the learning page!</h1>
+<p-stepper>
     <p-stepperPanel header="Start your adventure!">
         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                <div
+                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                     A new challenge has appeared! You've discovered the ancient
-                    ruins of a lost civilization. 
-                    <br/>
+                    ruins of a lost civilization.
+                    <br />
                     Inside these ruins, you've unearthed
-                    functioning PC parts. 
-                    <br/>
+                    functioning Computer parts.
+                    <br />
                     Your mission — should you choose to
                     accept it — is to travel through, collecting these essential
                     parts and assembling them into a working gaming PC!
-                    <br/> 
+                    <br />
                     This guide will help you on your quest.
-                </div> 
+                </div>
             </div>
             <div class="flex py-4">
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
     </p-stepperPanel>
-    <p-stepperPanel header="Chapter 1: CPU">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    CPU
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="5"></p-paginator> 
+    <p-stepperPanel header="CPU">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="City of Technologica!">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    You have reached the enterance of the Ancient City of Technologica!
+                                    <br />
+                                    The enterance of the Ancient City was covered in vines and a thick forest.
+                                    <br />
+                                    As you entered the ruins, you noticed that there are some scribings on the walls. It
+                                    was translated to the following:
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Technologica's Lost History">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    The city of Technologica was once ruled by two factions, they were 'AMD' and
+                                    'Intel'.
+                                    <br />
+                                    They each control vast territories, resources, and armies of loyalists.
+                                    <br />
+                                    AMD's faction was portrayed as the innovative rebels, constantly pushing the
+                                    boundaries of
+                                    technology and advocating for open-source principles.
+                                    <br />
+                                    Meanwhile, Intel's faction represents the established order, focusing on stability,
+                                    security, and efficiency.
+                                    <br />
+                                    But, due to the greed of power and control, both factions were at war for decades,
+                                    until both
+                                    nations have drove the city into a complete wasteland.
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Crossroads!">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After reading the scribings, you arrived at a crossroads. On the left, a pulsing red
+                                    panel with AMD,
+                                    on the right, a pulsing blue panel with Intel.
+                                    <br />
+                                    Which faction shall you side with?
+                                    <br />
+                                    (If you chose AMD, please choose the panel with the title AMD)
+                                    <br />
+                                    (If you chose Intel, please choose the panel with the title Intel.)
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="AMD">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    You have chosen to join the rebels to fight against the oppresive force of Intel.
+                                    <br />
+                                    As you walk through the corridor, you reached a huge room that is bathed in a soft,
+                                    pulsating red glow.
+                                    <br />
+                                    In the middle of the room, you see a Ryzen CPU artifact sits on a pedestal, the glow
+                                    was resonating with your heartbeat in harmony.
+                                    <br />
+                                    As you approached the artifact, you can feel a surge of creative energy, as if the
+                                    very essence of innovation and possibility flows through you.
+                                    <br />
+                                    You picked up the artifact and the room's walls awere adorned with holographic
+                                    projections showcasing AMD's technological innovations and the diverse cultures it
+                                    had supported.
+                                    <br />
+                                    A door in front of you opens, red lights brighten up the corridor, as a sign for
+                                    your next step.
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Intel">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    You have chosen join the authorities to ensure order against the rebellion of AMD.
+                                    <br />
+                                    As you walk through the corridor, you reached a huge room that is bathed in a
+                                    steadt, blue glow.
+                                    <br />
+                                    In the middle of the room, you see a Core CPU artifact sits on a pedestal, the glow
+                                    dominated the space with a futuristic blue light.
+                                    <br />
+                                    As you approached the artifact, you can feel a surge ofof order and precision, its
+                                    presence evoking feelings of confidence and security.
+                                    <br />
+                                    You picked up the artifact and the room's walls, covered with monitors displaying
+                                    Intel's advanced infrastructure and meticulously planned strategies for dominance.
+                                    <br />
+                                    A door in front of you opens, blue lights brighten up the corridor, as a sign for
+                                    your next step.
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Final">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After choosing your faction, you received a map to continue your adventure.
+                                    <br />
+                                    You picked up the map and ventured forth to the doors that were opened.
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
     </p-stepperPanel>
-    <p-stepperPanel header="Chapter 2: RAM">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    RAM
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
+    <p-stepperPanel header="Motherboard">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="Connecting CPU">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Technologica's Lost History">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Final">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Final Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
     </p-stepperPanel>
-    <p-stepperPanel header="Chapter 3: Storage">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    Storage
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
+    <p-stepperPanel header="Main Header">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="Header 1">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header 2">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Final Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Final Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
-    </p-stepperPanel>
-    <p-stepperPanel header="Chapter 4: GPU">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    GPU
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
             </div>
-            <div class="flex py-4 gap-2">
-                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
-    </p-stepperPanel>
-    <p-stepperPanel header="Chapter 5: Motherboard">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    Motherboard
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
-            </div>
-            <div class="flex py-4 gap-2">
-                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" /></div
-        ></ng-template>
-    </p-stepperPanel>
-    <p-stepperPanel header="Final chapter: The computer">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-            <div class="flex flex-column h-12rem">
-                <div class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                    The computer
-                </div>
-                <p-paginator [first]="first" [rows]="rows" [totalRecords]="500"></p-paginator> 
-            </div>
-            <div class="flex py-4">
-                <p-button label="Back" (onClick)="prevCallback.emit()" /></div
-        ></ng-template>
+        </ng-template>
     </p-stepperPanel>
 </p-stepper>
