@@ -8,7 +8,7 @@ class CPU(admin.ModelAdmin):
 
 @admin.register(GPU)
 class GPU(admin.ModelAdmin):
-    list_display = ['gpu_name','gpu_brand', 'gpu_performance']
+    list_display = ['gpu_name','gpu_brand', 'gpu_performance', 'gpu_model']
 
 @admin.register(RAM)
 class RAM(admin.ModelAdmin):

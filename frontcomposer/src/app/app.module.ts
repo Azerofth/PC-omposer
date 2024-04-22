@@ -20,6 +20,7 @@ import { StepperModule } from 'primeng/stepper';
 import { CarouselModule } from 'primeng/carousel';
 import { ImageModule } from 'primeng/image';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { ToastModule } from 'primeng/toast';
 
 
 
@@ -68,6 +69,7 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     CarouselModule,
     ImageModule,
     TabMenuModule,
+    ToastModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

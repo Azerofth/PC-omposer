@@ -22,6 +22,7 @@ class GPU(models.Model):
     gpu_brand = models.CharField(max_length=60)
     gpu_name = models.CharField(max_length=60)
     gpu_performance= models.CharField(max_length=60)
+    gpu_model=models.CharField(max_length=60)
     def __str__(self):
         return self.gpu_name
 

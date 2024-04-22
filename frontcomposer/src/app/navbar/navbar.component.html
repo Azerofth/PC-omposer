@@ -6,7 +6,7 @@
     </a>
     <nav class="no-underline md:ml-auto flex flex-wrap items-center text-base justify-center">
       <a  routerLink="/home" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Home</a>
-      <a routerLink="/dashboard" routerLinkActive="active-link"
+      <a *ngIf="isLoggedIn()" routerLink="/dashboard" routerLinkActive="active-link"
         class=" no-underline mr-5 hover:text-gray-900">Dashboard</a>
       <a routerLink="/pcbuilderhome" routerLinkActive="active-link" class="no-underline mr-5 hover:text-gray-900">Pc
         Builder</a>
@@ -25,8 +25,8 @@
       class="no-underline flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <span class="ml-3 font-bold text-3xl">PC-omposer</span>
     </a>
-    <a pripple
-      class="p-ripple p-element cursor-pointer block text-700 py-2 px-3 transition-colors transition-duration-150 hover:surface-300 border-round hover:text-900">
+    <a *ngIf="isLoggedIn()" routerLink="/dashboard" routerLinkActive="active-link" pripple
+      class="no-underline p-ripple p-element cursor-pointer block text-700 py-2 px-3 transition-colors transition-duration-150 hover:surface-300 border-round hover:text-900">
       Dashboard
       <span class="p-ink"></span>
     </a>

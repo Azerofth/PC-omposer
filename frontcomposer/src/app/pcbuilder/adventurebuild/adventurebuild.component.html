@@ -4,7 +4,7 @@
         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
             <div class="flex flex-column h-12rem">
                 <div
-                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                     A new challenge has appeared! You've discovered the ancient
                     ruins of a lost civilization.
                     <br />
@@ -16,6 +16,7 @@
                     parts and assembling them into a working gaming PC!
                     <br />
                     This guide will help you on your quest.
+                    
                 </div>
             </div>
             <div class="flex py-4">
@@ -30,15 +31,17 @@
                 <p-stepper orientation="vertical">
                     <p-stepperPanel header="City of Technologica!">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-13rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    
                                     You have reached the enterance of the Ancient City of Technologica!
                                     <br />
                                     The enterance of the Ancient City was covered in vines and a thick forest.
                                     <br />
                                     As you entered the ruins, you noticed that there are some scribings on the walls. It
                                     was translated to the following:
+                                    <img src="assets/adventure/Corridor.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -52,7 +55,7 @@
                             let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     The city of Technologica was once ruled by two factions, they were 'AMD' and
                                     'Intel'.
                                     <br />
@@ -80,9 +83,10 @@
                     <p-stepperPanel header="Crossroads!">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    
                                     After reading the scribings, you arrived at a crossroads. On the left, a pulsing red
                                     panel with AMD,
                                     on the right, a pulsing blue panel with Intel.
@@ -92,6 +96,7 @@
                                     (If you chose AMD, please choose the panel with the title AMD)
                                     <br />
                                     (If you chose Intel, please choose the panel with the title Intel.)
+                                    <img src="assets/adventure/CPUCross.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -106,7 +111,8 @@
                             let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    
                                     You have chosen to join the rebels to fight against the oppresive force of Intel.
                                     <br />
                                     As you walk through the corridor, you reached a huge room that is bathed in a soft,
@@ -124,6 +130,7 @@
                                     <br />
                                     A door in front of you opens, red lights brighten up the corridor, as a sign for
                                     your next step.
+                                    <img src="assets/adventure/Ryzen.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -133,16 +140,17 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Intel">
+                    <p-stepperPanel class="text-blue-600" header="Intel">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    You have chosen join the authorities to ensure order against the rebellion of AMD.
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                   
+                                    You have chosen stand with justice to ensure order against the rebellion of AMD.
                                     <br />
                                     As you walk through the corridor, you reached a huge room that is bathed in a
-                                    steadt, blue glow.
+                                    steady, blue glow.
                                     <br />
                                     In the middle of the room, you see a Core CPU artifact sits on a pedestal, the glow
                                     dominated the space with a futuristic blue light.
@@ -155,6 +163,7 @@
                                     <br />
                                     A door in front of you opens, blue lights brighten up the corridor, as a sign for
                                     your next step.
+                                    <img src="assets/adventure/Core.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -164,11 +173,11 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Final">
+                    <p-stepperPanel header="Moving forward">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     After choosing your faction, you received a map to continue your adventure.
                                     <br />
                                     You picked up the map and ventured forth to the doors that were opened.
@@ -187,17 +196,26 @@
             </div>
         </ng-template>
     </p-stepperPanel>
-    <p-stepperPanel header="Motherboard">
+    <p-stepperPanel header="Motherboard and RAM">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
-                    <p-stepperPanel header="Connecting CPU">
+                    <p-stepperPanel header="The Motherboard">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    <img src="assets/adventure/CPUMobo.png">
+                                    You follow the lights in the corridor that lead you to a very spacious room.
+                                    <br/>
+                                    In the room, you see another artifact that is placed on a pedestal. Theres a text on the pedestal that reads, The Motherboard.
+                                    <br/>
+                                    As you apporach the motherboard, you see that in the middle it has a socket which aligns with the CPU you have chosen.
+                                    <br/>
+                                    (If you chose AMD, please choose the panel with the title AMD)
+                                    <br />
+                                    (If you chose Intel, please choose the panel with the title Intel.)
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -206,12 +224,142 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Technologica's Lost History">
+                    <p-stepperPanel header="Intel">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Open the CPU bracket on your motherboard by pushing on the metal retention arm. Do not remove black cover.
+                                    <br/><br/>
+                                    B. Align the arrows on the CPU and the socket. Do not force. Place the CPU down gently, taking care not to move it once seated.
+                                    <br/><br/>
+                                    C. Pull down and latch the metal retention arm onto the socket.
+                                    <br/><br/>
+                                    D. The plastic CPU cover should come off itself once the bracket is
+                                    closed. Do not discard this cover in case you need to return or
+                                    exchange it.
+                                    <img src="assets/adventure/IntelSocket1.png">
+                                    <img src="assets/adventure/IntelSocket2.png">
+                                    
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Ryzen">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-14rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Unlatch the CPU socket by pressing on the metal retention arm and bringing it up all the way.
+                                    <br/><br/>
+                                    B. Hold the CPU by the sides. Do NOT touch the gold pins. Identify the corner of the CPU that has the arrow.
+                                    <br/><br/>
+                                    C. Align the marked corner (dot or triangle) on the CPU with the marked corner of the socket. Do not force or move. Place gently.
+                                    <br/><br/>
+                                    D. Pull down and latch the metal retention arm onto the socket.
+                                    <img src="assets/adventure/RyzenSocket1.png">
+                                    <img src="assets/adventure/RyzenSocket2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="RAM / Memory sticks">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-13rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After securing the CPU into the socket, you see a box appeared from the ground, inside the box there are two rectangle artifacts.
+                                    <br/>
+                                    You flip through your notes, and found out that these are called as 'RAM sticks' or 'Memory sticks'. They serve as the short term memory for the computer.
+                                    <br/>
+                                    You noticed that there are 4 (some times 2) rectangle slots next to the CPU socket with tabs on the top and bottom of it.
+                                    <br/>
+                                    They seem to align with the Memory Sticks as they have a space between a long and short golden line.
+                                    <br/>
+                                    Inside your notes (Motherboard manual) you see that you have to install into very specific slots first.
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Installing the RAM">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-16rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    C. Your motherboard may only have tabs on one side to push down.
+                                    <br/><br/>
+                                    D.Typically if there is a white sticker on your memory sticks, this
+                                    white sticker will be facing into the board, towards where the
+                                    CPU socket is located.
+                                    <br/><br/>
+                                    E. Make
+                                    sure the RAM matches the openings on the motherboard lanes.
+                                    Otherwise, it will not go in.
+                                    <br/><br/>
+                                    F. Make sure that the gold connectors are properly aligned before
+                                    applying force. Press down until you hear a click. Be careful, but
+                                    don't be afraid to push firmly, it may require some extra force.
+                                    <img src="assets/adventure/RAMInstall1.png">
+                                    <img src="assets/adventure/RAMInstall2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
+            </div>
+            <div class="flex py-4 gap-2">
+                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="Storage and Cooler">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="Storage">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    <img src="assets/adventure/NVME.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Cooler">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     Content
                                 </div>
                             </div>
@@ -222,11 +370,11 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Final">
+                    <p-stepperPanel header="Case">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     Final Content
                                 </div>
                             </div>
@@ -243,17 +391,26 @@
             </div>
         </ng-template>
     </p-stepperPanel>
-    <p-stepperPanel header="Main Header">
+    <p-stepperPanel header="Case and power supply">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
-                    <p-stepperPanel header="Header 1">
+                    <p-stepperPanel header="The Motherboard">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    <img src="assets/adventure/CPUMobo.png">
+                                    You follow the lights in the corridor that lead you to a very spacious room.
+                                    <br/>
+                                    In the room, you see another artifact that is placed on a pedestal. Theres a text on the pedestal that reads, The Motherboard.
+                                    <br/>
+                                    As you apporach the motherboard, you see that in the middle it has a socket which aligns with the CPU you have chosen.
+                                    <br/>
+                                    (If you chose AMD, please choose the panel with the title AMD)
+                                    <br />
+                                    (If you chose Intel, please choose the panel with the title Intel.)
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -262,13 +419,24 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header 2">
+                    <p-stepperPanel header="Intel">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Open the CPU bracket on your motherboard by pushing on the metal retention arm. Do not remove black cover.
+                                    <br/><br/>
+                                    B. Align the arrows on the CPU and the socket. Do not force. Place the CPU down gently, taking care not to move it once seated.
+                                    <br/><br/>
+                                    C. Pull down and latch the metal retention arm onto the socket.
+                                    <br/><br/>
+                                    D. The plastic CPU cover should come off itself once the bracket is
+                                    closed. Do not discard this cover in case you need to return or
+                                    exchange it.
+                                    <img src="assets/adventure/IntelSocket1.png">
+                                    <img src="assets/adventure/IntelSocket2.png">
+                                    
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -278,12 +446,214 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Final Header">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-                            <div class="flex flex-column h-12rem">
+                    <p-stepperPanel header="Ryzen">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-14rem">
                                 <div
-                                    class="border-2 border-dashed surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Final Content
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Unlatch the CPU socket by pressing on the metal retention arm and bringing it up all the way.
+                                    <br/><br/>
+                                    B. Hold the CPU by the sides. Do NOT touch the gold pins. Identify the corner of the CPU that has the arrow.
+                                    <br/><br/>
+                                    C. Align the marked corner (dot or triangle) on the CPU with the marked corner of the socket. Do not force or move. Place gently.
+                                    <br/><br/>
+                                    D. Pull down and latch the metal retention arm onto the socket.
+                                    <img src="assets/adventure/RyzenSocket1.png">
+                                    <img src="assets/adventure/RyzenSocket2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="RAM / Memory sticks">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-13rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After securing the CPU into the socket, you see a box appeared from the ground, inside the box there are two rectangle artifacts.
+                                    <br/>
+                                    You flip through your notes, and found out that these are called as 'RAM sticks' or 'Memory sticks'. They serve as the short term memory for the computer.
+                                    <br/>
+                                    You noticed that there are 4 (some times 2) rectangle slots next to the CPU socket with tabs on the top and bottom of it.
+                                    <br/>
+                                    They seem to align with the Memory Sticks as they have a space between a long and short golden line.
+                                    <br/>
+                                    Inside your notes (Motherboard manual) you see that you have to install into very specific slots first.
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Installing the RAM">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-16rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    C. Your motherboard may only have tabs on one side to push down.
+                                    <br/><br/>
+                                    D.Typically if there is a white sticker on your memory sticks, this
+                                    white sticker will be facing into the board, towards where the
+                                    CPU socket is located.
+                                    <br/><br/>
+                                    E. Make
+                                    sure the RAM matches the openings on the motherboard lanes.
+                                    Otherwise, it will not go in.
+                                    <br/><br/>
+                                    F. Make sure that the gold connectors are properly aligned before
+                                    applying force. Press down until you hear a click. Be careful, but
+                                    don't be afraid to push firmly, it may require some extra force.
+                                    <img src="assets/adventure/RAMInstall1.png">
+                                    <img src="assets/adventure/RAMInstall2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
+            </div>
+            <div class="flex py-4 gap-2">
+                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
+    </p-stepperPanel>
+    <p-stepperPanel header="GPU">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="The Motherboard">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    <img src="assets/adventure/CPUMobo.png">
+                                    You follow the lights in the corridor that lead you to a very spacious room.
+                                    <br/>
+                                    In the room, you see another artifact that is placed on a pedestal. Theres a text on the pedestal that reads, The Motherboard.
+                                    <br/>
+                                    As you apporach the motherboard, you see that in the middle it has a socket which aligns with the CPU you have chosen.
+                                    <br/>
+                                    (If you chose AMD, please choose the panel with the title AMD)
+                                    <br />
+                                    (If you chose Intel, please choose the panel with the title Intel.)
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Intel">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Open the CPU bracket on your motherboard by pushing on the metal retention arm. Do not remove black cover.
+                                    <br/><br/>
+                                    B. Align the arrows on the CPU and the socket. Do not force. Place the CPU down gently, taking care not to move it once seated.
+                                    <br/><br/>
+                                    C. Pull down and latch the metal retention arm onto the socket.
+                                    <br/><br/>
+                                    D. The plastic CPU cover should come off itself once the bracket is
+                                    closed. Do not discard this cover in case you need to return or
+                                    exchange it.
+                                    <img src="assets/adventure/IntelSocket1.png">
+                                    <img src="assets/adventure/IntelSocket2.png">
+                                    
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Ryzen">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-14rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Unlatch the CPU socket by pressing on the metal retention arm and bringing it up all the way.
+                                    <br/><br/>
+                                    B. Hold the CPU by the sides. Do NOT touch the gold pins. Identify the corner of the CPU that has the arrow.
+                                    <br/><br/>
+                                    C. Align the marked corner (dot or triangle) on the CPU with the marked corner of the socket. Do not force or move. Place gently.
+                                    <br/><br/>
+                                    D. Pull down and latch the metal retention arm onto the socket.
+                                    <img src="assets/adventure/RyzenSocket1.png">
+                                    <img src="assets/adventure/RyzenSocket2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="RAM / Memory sticks">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-13rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After securing the CPU into the socket, you see a box appeared from the ground, inside the box there are two rectangle artifacts.
+                                    <br/>
+                                    You flip through your notes, and found out that these are called as 'RAM sticks' or 'Memory sticks'. They serve as the short term memory for the computer.
+                                    <br/>
+                                    You noticed that there are 4 (some times 2) rectangle slots next to the CPU socket with tabs on the top and bottom of it.
+                                    <br/>
+                                    They seem to align with the Memory Sticks as they have a space between a long and short golden line.
+                                    <br/>
+                                    Inside your notes (Motherboard manual) you see that you have to install into very specific slots first.
+                                    <br/>
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Installing the RAM">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-16rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    C. Your motherboard may only have tabs on one side to push down.
+                                    <br/><br/>
+                                    D.Typically if there is a white sticker on your memory sticks, this
+                                    white sticker will be facing into the board, towards where the
+                                    CPU socket is located.
+                                    <br/><br/>
+                                    E. Make
+                                    sure the RAM matches the openings on the motherboard lanes.
+                                    Otherwise, it will not go in.
+                                    <br/><br/>
+                                    F. Make sure that the gold connectors are properly aligned before
+                                    applying force. Press down until you hear a click. Be careful, but
+                                    don't be afraid to push firmly, it may require some extra force.
+                                    <img src="assets/adventure/RAMInstall1.png">
+                                    <img src="assets/adventure/RAMInstall2.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">

@@ -12,7 +12,9 @@
                     build a computer from scratch. Select the following to choose your adventure!</p>
                 <a routerLink="/pcbuilderhome" routerLinkActive="active-link"><button pButton pRipple
                         pTooltip="Learn and build a computer!" label="Start your journey here!"></button></a>
-                <a routerLink="/login" routerLinkActive="active-link"><button pButton pRipple
+                <br/>
+                <br/>
+                <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active-link"><button pButton pRipple
                         pTooltip="Login to your account!" label="Login here!" class="p-button-success"></button></a>
             </section>
         </div>
@@ -24,12 +26,12 @@
 
     <div class="card flex justify-content-center">
         <form [formGroup]="promptForm" (ngSubmit)="onSubmit()">
-            <div class="form-group p-float-label">
+            <div class="flex form-group p-float-label">
                 <input pInputText id="prompt" formControlName="prompt" class="form-control" class="w-full md:w-30rem">
                 <label for="prompt">Beta testing prompt-to-build</label>
             </div>
             <br />
-            <button pButton pRipple label="Send" class="w-full p-3 text-xl" type="submit"></button>
+            <button pButton pRipple label="Try now!" class="w-full p-3 text-xl" type="submit"></button>
         </form>
     </div>
 </div>

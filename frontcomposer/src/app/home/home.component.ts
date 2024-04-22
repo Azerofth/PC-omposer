@@ -18,7 +18,10 @@ export class HomeComponent {
       prompt: ['', Validators.required],
     });
   }
-
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return token === 'loggedin';
+  }
   onSubmit(){
     console.log(this.promptForm.value);
     const promptValue = this.promptForm.value.prompt;

@@ -20,7 +20,7 @@ class CPUSerializer(serializers.HyperlinkedModelSerializer):
 class GPUSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=GPU
-        fields=( 'gpu_name','gpu_brand', 'gpu_performance')
+        fields=( 'gpu_name','gpu_brand', 'gpu_performance', 'gpu_model')
 
 class RAMSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
