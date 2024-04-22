@@ -1,5 +1,5 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from .models import *
@@ -128,10 +128,6 @@ class caseViewset(viewsets.ModelViewSet):
     queryset = Case.objects.all()
     serializer_class = CaseSerializer
 
-class computerViewset(viewsets.ModelViewSet):
-    queryset = Computer.objects.all()
-    serializer_class = ComputerSerializer
-
 class storageViewset(viewsets.ModelViewSet):
     queryset = Storage.objects.all()
     serializer_class = StorageSerializer
@@ -140,4 +136,21 @@ class powerSupplyViewset(viewsets.ModelViewSet):
     queryset = PowerSupply.objects.all()
     serializer_class = Power_SupplySerializer
 
-
+class computerViewset(viewsets.ModelViewSet):
+    queryset = Computer.objects.all()
+    serializer_class = ComputerSerializer
+    
+    def test():
+        print(queryset)
+        queryset = Computer.objects.all().values()
+        for test in queryset:
+            cpu = CPU.objects.get(pk=test['cpu_name_id'])
+            motherboard = Motherboard.objects.get(pk=test['motherboard_id'])
+            ram = RAM.objects.get(pk=test['ram_id'])
+            storage = Storage.objects.get(pk=test['storage_id'])
+            gpu = GPU.objects.get(pk=test['gpu_name_id'])
+            power_supply = PowerSupply.objects.get(pk=test['power_supply_id'])
+            case = Case.objects.get(pk=test['case_id'])
+            user = User.objects.get(pk=test['user_id'])
+        
+        print(cpu, motherboard, ram, storage, gpu, power_supply, case)

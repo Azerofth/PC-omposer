@@ -16,14 +16,18 @@
                 <br/>
                 <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active-link"><button pButton pRipple
                         pTooltip="Login to your account!" label="Login here!" class="p-button-success"></button></a>
+                <a *ngIf="isLoggedIn()" routerLink="/partspicker" routerLinkActive="active-link"><button pButton pRipple
+                    pTooltip="Spec out a desktop!" label="Compose a machine"class="p-button-success"></button></a>
             </section>
         </div>
         <div class="col-12 md:col-6 overflow-hidden">
-            <img src="assets/adventure/StartQuest.png" alt="Image" class="md:ml-auto block"
+            <img src="assets/backgrounds/background1.png" alt="Image" class="md:ml-auto block"
                 style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
         </div>
     </div>
 
+    <h3> Try out our prompt-to-build system!</h3>
+    
     <div class="card flex justify-content-center">
         <form [formGroup]="promptForm" (ngSubmit)="onSubmit()">
             <div class="flex form-group p-float-label">

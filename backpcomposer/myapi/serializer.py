@@ -1,12 +1,6 @@
 from rest_framework import serializers
 from myapi.models import *
-
-class ComputerSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Computer
-        fields = ('cpu_name','motherboard','ram','storage'
-                  ,'gpu_name','power_supply','case', 'user', 'likes')
-        
+   
 class userSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=User
@@ -46,3 +40,9 @@ class CaseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=Case
         fields=('case_name','case_brand', 'case_size')
+
+class ComputerSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Computer
+        fields = ('cpu_name','motherboard','ram','storage'
+                  ,'gpu_name','power_supply','case', 'user', 'likes')

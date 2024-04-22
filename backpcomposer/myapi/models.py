@@ -77,3 +77,4 @@ class Computer(models.Model):
     likes = models.IntegerField()
 
 
+

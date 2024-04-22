@@ -8,7 +8,6 @@ import { MenuItem } from 'primeng/api';
 })
 export class DashboardComponent {
   items: MenuItem[] | undefined;
-
   activeItem: MenuItem | undefined;
   ngOnInit() {
     this.items = [

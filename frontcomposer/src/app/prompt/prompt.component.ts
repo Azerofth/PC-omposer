@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from '../services/shared.service';
+
 
 @Component({
   selector: 'app-prompt',
@@ -9,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class PromptComponent implements OnInit {
   promptValue: string = '';
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private service: SharedService) {}
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.promptValue = params['prompt'];
@@ -36,9 +38,6 @@ export class PromptComponent implements OnInit {
     } 
     else if (matchingKeywords.includes('cheap') && matchingKeywords.includes('gaming')) {
       console.log('Both "cheap" and "gaming" exist');
-    }
-    else if (matchingKeywords.includes('budget') && matchingKeywords.includes('cheap')) {
-      console.log('Both "budget" and "cheap" exist');
     }
     else if (matchingKeywords.includes('extreme') && matchingKeywords.includes('gaming')) {
       console.log('Both "extreme" and "gaming" exist');
