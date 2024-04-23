@@ -25,19 +25,20 @@
                 style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
         </div>
     </div>
-    <div>
-        <h3> Try out our prompt-to-build system!</h3>
-    </div>
-    <div class="grid grid-nogutter surface-section text-800">
-            <form class="card flex justify-content-center" [formGroup]="promptForm" (ngSubmit)="onSubmit()">
-                <div class="flex form-group p-float-label space-x-4">
-                    <input pInputText id="prompt" formControlName="prompt" class="form-control"
-                        class="w-full md:w-30rem">
-                        
-                    <label for="prompt">Beta testing prompt-to-build</label>
-                </div>
-                <br />
-                <button pButton pRipple label="Try now!" class="w-full p-3 text-xl" type="submit"></button>
-            </form>
+</div>
+<div class="grid grid-cols-2 gap-4 place-content-stretch h-48">
+    <div class="grid grid-nogutter surface-section text-400">
+        <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+            <section>
+                <form class="card flex justify-content-center" [formGroup]="promptForm" (ngSubmit)="onSubmit()">
+                    <div class="flex form-group p-float-label space-x-4">
+                        <input pInputText id="prompt" formControlName="prompt" class="form-control"
+                            class="w-full md:w-30rem">
+                        <label for="prompt">Beta testing prompt-to-build</label>
+                    </div>
+                    <button pButton pRipple label="Try now!" class="w-full p-3 text-xl" type="submit"></button>
+                </form>
+            </section>
+        </div>
     </div>
 </div>
