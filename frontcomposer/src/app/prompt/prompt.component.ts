@@ -10,8 +10,12 @@ import { SharedService } from '../services/shared.service';
 })
 
 export class PromptComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute, private service: SharedService) { }
   promptValue: string = '';
-  constructor(private route: ActivatedRoute, private service: SharedService) {}
+  computerList!: any[];
+  partsNamelist!: any[];
+  value!: number;
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.promptValue = params['prompt'];
@@ -19,10 +23,15 @@ export class PromptComponent implements OnInit {
       this.processPromptValue(this.promptValue);
     });
   }
+  onRate(value: any) {
+    this.value = value
+    alert('thank you for your feedback');
+  }
+  
   processPromptValue(promptValue: string) {
-    
+
     const lowercasePromptValue = promptValue.toLowerCase();
-    
+
     // Split the prompt value into words
     const words = lowercasePromptValue.split(' ');
 
@@ -33,26 +42,42 @@ export class PromptComponent implements OnInit {
     const matchingKeywords = keywords.filter(keyword => words.includes(keyword));
 
     // Based on the matching keywords, display corresponding data
+
     if (matchingKeywords.includes('budget') && matchingKeywords.includes('gaming')) {
       console.log('Both "budget" and "gaming" exist');
-    } 
+      this.service.post('computer/component_names/', 1).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
+    }
     else if (matchingKeywords.includes('cheap') && matchingKeywords.includes('gaming')) {
       console.log('Both "cheap" and "gaming" exist');
+      this.service.post('computer/component_names/', 1).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
     }
     else if (matchingKeywords.includes('extreme') && matchingKeywords.includes('gaming')) {
       console.log('Both "extreme" and "gaming" exist');
+      this.service.post('computer/component_names/', 2).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
     }
     else if (matchingKeywords.includes('expensive') && matchingKeywords.includes('gaming')) {
       console.log('Both "expensive" and "gaming" exist');
+      this.service.post('computer/component_names/', 3).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('gaming')) {
       console.log('Both "fast" and "gaming" exist');
+      this.service.post('computer/component_names/', 2).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('extreme')) {
       console.log('Both "fast" and "extreme" exist');
-    }
-    else if (matchingKeywords.includes('fast') && matchingKeywords.includes('expensive')) {
-      console.log('Both "fast" and "expensive" exist');
+      this.service.post('computer/component_names/', 3).subscribe(data => {
+        this.computerList = Object.values(data);
+      });
     }
     else {
       // Check each keyword individually
@@ -79,6 +104,6 @@ export class PromptComponent implements OnInit {
           // Add cases for additional keywords as needed
         }
       });
-}
+    }
   }
 }

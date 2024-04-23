@@ -140,17 +140,46 @@ class computerViewset(viewsets.ModelViewSet):
     queryset = Computer.objects.all()
     serializer_class = ComputerSerializer
     
-    def test():
-        print(queryset)
-        queryset = Computer.objects.all().values()
-        for test in queryset:
-            cpu = CPU.objects.get(pk=test['cpu_name_id'])
-            motherboard = Motherboard.objects.get(pk=test['motherboard_id'])
-            ram = RAM.objects.get(pk=test['ram_id'])
-            storage = Storage.objects.get(pk=test['storage_id'])
-            gpu = GPU.objects.get(pk=test['gpu_name_id'])
-            power_supply = PowerSupply.objects.get(pk=test['power_supply_id'])
-            case = Case.objects.get(pk=test['case_id'])
-            user = User.objects.get(pk=test['user_id'])
-        
-        print(cpu, motherboard, ram, storage, gpu, power_supply, case)
+    @action(detail=False, methods=['post'])
+    def component_names(self, request, *args, **kwargs):
+        data = json.loads(request.body.decode('utf-8'))
+        filter1 = self.queryset.filter(id=data)
+        querylist = filter1.values()
+        print(querylist)    
+        computer_data = []
+        try:
+            for test in querylist:
+                cpu = str(CPU.objects.get(pk=test['cpu_name_id']))
+                cpu_spec = str(CPU.objects.get(pk=test['cpu_name_id']).cpu_performance)
+                motherboard = str(Motherboard.objects.get(pk=test['motherboard_id']))
+                motherboard_spec = str(Motherboard.objects.get(pk=test['motherboard_id']).motherboard_chipset)
+                ram = str(RAM.objects.get(pk=test['ram_id']))
+                ram_spec = str(RAM.objects.get(pk=test['ram_id']).ram_performance)
+                storage = str(Storage.objects.get(pk=test['storage_id']))
+                storage_spec = str(Storage.objects.get(pk=test['storage_id']).storage_capacity)
+                gpu = str(GPU.objects.get(pk=test['gpu_name_id']))
+                gpu_spec = str(GPU.objects.get(pk=test['gpu_name_id']).gpu_performance)
+                power_supply = str(PowerSupply.objects.get(pk=test['power_supply_id']))
+                power_supply_spec = str(PowerSupply.objects.get(pk=test['power_supply_id']).power_supply_wattage)
+                case = str(Case.objects.get(pk=test['case_id']))
+                case_spec = str(Case.objects.get(pk=test['case_id']).case_size)
+                computer_data.append({
+                    'cpu_name': cpu,
+                    'cpu_spec': cpu_spec,
+                    'motherboard': motherboard,
+                    'motherboard_spec': motherboard_spec,
+                    'ram': ram,
+                    'ram_spec': ram_spec,
+                    'storage': storage,
+                    'storage_spec': storage_spec,
+                    'gpu_name': gpu,
+                    'gpu_spec': gpu_spec,
+                    'power_supply': power_supply,
+                    'power_supply_spec': power_supply_spec,
+                    'case': case,
+                    'case_spec': case_spec
+                })
+                print(computer_data)
+                return Response(computer_data)
+        except:
+            return Response('No data found')

@@ -1,4 +1,67 @@
 <div> 
-    <p>Here is a computer generated from your prompt: "{{promptValue}}"</p>
-    
+    <p>Here is a computer generated from your prompt: "{{ promptValue}}"</p>
+    <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Components</th>
+                <th>Model Name</th>
+                <th>Specifcation</th>
+                <th>Amount</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-computer>
+            <tr>
+                <td>CPU</td>
+                <td>{{ computer.cpu_name }}</td>
+                <td>Score: {{ computer.cpu_spec }}</td>
+                <td>1</td>
+                
+            </tr>
+            <tr>
+                <td>GPU</td>
+                <td>{{ computer.gpu_name}}</td>
+                <td>Score: {{ computer.gpu_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Motherboard</td>
+                <td>{{ computer.motherboard }}</td>
+                <td>Chipset: {{ computer.motherboard_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td>{{ computer.ram }}</td>
+                <td>{{ computer.ram_spec }} Mhz</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td>{{ computer.storage }}</td>
+                <td>Capacity: {{ computer.storage_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Power Supply</td>
+                <td>{{ computer.power_supply }}</td>
+                <td>Wattage: {{ computer.power_supply_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Case</td>
+                <td>{{ computer.case }}</td>
+                <td>Size: {{ computer.case_spec }}</td>
+                <td>1</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
+<br/>
+<div class="card flex justify-content-end">
+    <p-rating class="size-10" [(ngModel)]="value"></p-rating>
+    <span class="w-1"></span>
+    <button pButton pRipple label="Rate this build!" class=" p-3 text-xl" (click)="onRate(value)"></button>
+</div>
+
+

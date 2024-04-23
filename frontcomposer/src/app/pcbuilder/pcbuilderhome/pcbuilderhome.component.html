@@ -8,8 +8,8 @@
         <p>Click here to start learning</p>
         <a routerLink="/adventurebuild" routerLinkActive="active-link"><button pButton pTooltip="Learn here!" pRipple label="Click Here!" class="p-button"></button></a>    
         <p> Already have experience in building some computers?</p>
-        <p>Start building and uploading some builds!</p>
-        <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active-link"><button pButton pTooltip="Login first to start building!" pRipple label="Build your computer here!" class="p-button-success"></button></a>
+        <p>Start configurating and uploading some builds!</p>
+        <a *ngIf="!isLoggedIn()" routerLink="/login" routerLinkActive="active-link"><button pButton pTooltip="Login first to start building!" pRipple label="Login first" class="p-button-success"></button></a>
         <a *ngIf="isLoggedIn()" routerLink="/partspicker" routerLinkActive="active-link"><button pButton pTooltip="Upload a new build!" pRipple label="Build your computer here!" class="p-button-success"></button></a>
         <br/>
         <br/>

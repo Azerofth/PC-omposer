@@ -21,6 +21,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { ImageModule } from 'primeng/image';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
+import { TableModule } from 'primeng/table';
+import { MessagesModule } from 'primeng/messages';
 
 
 
@@ -34,6 +36,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LogoutComponent } from './accounts/logout/logout.component';
+import { PromptComponent } from './prompt/prompt.component';
 
 
 @NgModule({
@@ -47,7 +50,8 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     AdventurebuildComponent,
     PartspickerComponent,
     RegistrationComponent,
-    LogoutComponent
+    LogoutComponent,
+    PromptComponent
 
 
   ],
@@ -70,6 +74,9 @@ import { LogoutComponent } from './accounts/logout/logout.component';
     ImageModule,
     TabMenuModule,
     ToastModule,
+    TableModule,
+    RatingModule,
+    MessagesModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],
