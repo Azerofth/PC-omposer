@@ -1,5 +1,6 @@
 <div> 
     <p>Here is a computer generated from your prompt: "{{ promptValue}}"</p>
+    <span class="h-1"></span>
     <button pButton pRipple label="Back" routerLink="/home"></button>
     <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
@@ -63,6 +64,8 @@
     <p-rating class="size-10" [(ngModel)]="value"></p-rating>
     <span class="w-1"></span>
     <button pButton pRipple label="Rate this build!" class=" p-3 text-xl" (click)="onRate(value)"></button>
+    <span class="w-1"></span>
+    <button pButton pRipple label="Save this build!" class=" p-3 text-xl"></button>
 </div>
 
 

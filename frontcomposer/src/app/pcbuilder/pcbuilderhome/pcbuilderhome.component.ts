@@ -10,7 +10,10 @@ import { MessageService } from 'primeng/api';
 export class PcbuilderhomeComponent {
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token === 'loggedin';
+    if (token == null) {
+      return false;
+    }
+    return true;
   }
 
 }

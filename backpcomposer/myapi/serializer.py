@@ -19,7 +19,7 @@ class GPUSerializer(serializers.HyperlinkedModelSerializer):
 class RAMSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=RAM
-        fields=( 'ram_name','ram_brand','ram_performance')
+        fields=( 'ram_name','ram_brand','ram_performance', 'ram_type')
     
 class MotherboardSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

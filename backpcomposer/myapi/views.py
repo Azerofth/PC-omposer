@@ -1,5 +1,4 @@
 import json
-from django.shortcuts import get_object_or_404, render
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from .models import *
@@ -8,8 +7,8 @@ from .serializer import *
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.contrib.auth import get_user_model
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 @csrf_exempt
@@ -27,11 +26,10 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 print(f"Welcome, {username}")
-                token = request.session.get('token','loggedin')
+                token = request.session.get('token', (user.id-1))
                 print(f"Token: {token}")
                 response = JsonResponse({'token': token})
                 return response
-                
             else:
                 print("Invalid username or password")
                 return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
@@ -56,6 +54,24 @@ class userViewset(viewsets.ModelViewSet):
             return Response('no')
         else:
             return Response('ok')
+        
+    @action(detail=False, methods=['post'])
+    def updateUser(self, request, *args, **kwargs):
+        try:
+            received_data = json.loads(request.body.decode('utf-8'))
+            username = received_data.get('username')
+            user = ActUser.objects.get(username=username)
+            user.email = received_data.get('email')
+            user.phone_number = received_data.get('phone_number')
+            user.verification = received_data.get('verification')
+            user.save()
+            return JsonResponse({'status': 'ok'}, status=200)
+        except ObjectDoesNotExist:
+            return JsonResponse({'status': 'failed', 'reason': 'User does not exist.'}, status=404)
+        except KeyError as e:
+            return JsonResponse({'status': 'failed', 'reason': f'Missing key: {str(e)}'}, status=400)
+        except Exception as e:
+            return JsonResponse({'status': 'failed', 'reason': str(e)}, status=500)
 
 @csrf_exempt
 def register_view(request):
@@ -112,6 +128,13 @@ class cpuViewset(viewsets.ModelViewSet):
     queryset = CPU.objects.all()
     serializer_class = CPUSerializer
 
+    def getCPU(self, request, *args, **kwargs):
+        cpuList = self.queryset.values()
+        for cpu in cpuList:
+            cpu = str(CPU.objects.get(['cpu_name_id']))
+            print(cpu)
+
+
 class gpuViewset(viewsets.ModelViewSet):
     queryset = GPU.objects.all()
     serializer_class = GPUSerializer
@@ -141,11 +164,10 @@ class computerViewset(viewsets.ModelViewSet):
     serializer_class = ComputerSerializer
     
     @action(detail=False, methods=['post'])
-    def component_names(self, request, *args, **kwargs):
+    def getcomputer(self, request, *args, **kwargs):
         data = json.loads(request.body.decode('utf-8'))
         filter1 = self.queryset.filter(id=data)
         querylist = filter1.values()
-        print(querylist)    
         computer_data = []
         try:
             for test in querylist:
@@ -179,7 +201,43 @@ class computerViewset(viewsets.ModelViewSet):
                     'case': case,
                     'case_spec': case_spec
                 })
-                print(computer_data)
                 return Response(computer_data)
         except:
             return Response('No data found')
+        
+    @action(detail=False, methods=['post'])
+    def uploadComputer(self, request):
+        data = json.loads(request.body.decode('utf-8'))
+        cpu = data.get('cpuID')
+        cpu_obj = CPU.objects.get(cpu_name=cpu)
+        motherboard = data.get('motherboardID')
+        mbo_obj = Motherboard.objects.get(motherboard_name=motherboard)
+        ram = data.get('ramID')
+        ram_obj = RAM.objects.get(ram_name=ram)
+        storage = data.get('storageID')
+        storage_obj = Storage.objects.get(storage_name=storage)
+        gpu = data.get('gpuID')
+        gpu_obj = GPU.objects.get(gpu_name=gpu)
+        psu = data.get('psuID')
+        psu_obj = PowerSupply.objects.get(power_supply_name=psu)
+        case = data.get('caseID')
+        case_obj = Case.objects.get(case_name=case)
+        user = data.get('userID')
+        user_obj = User.objects.get(id=user)
+        if cpu and motherboard and ram and storage and gpu and psu and case:
+            new_computer = Computer.objects.create(
+                cpu_name= cpu_obj,
+                motherboard= mbo_obj,
+                ram= ram_obj,
+                storage= storage_obj,
+                gpu_name= gpu_obj,
+                power_supply= psu_obj,
+                case= case_obj,
+                user= user_obj,
+            )
+            new_computer.save()
+            return JsonResponse({'status': 'ok'})
+        else:
+            return JsonResponse({'status': 'failed', 'reason': 'Invalid data'}, status=401)
+        
+        

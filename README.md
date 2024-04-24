@@ -1,3 +1,2 @@
 # PC-omposer
-FYP Prototype
-kekw why are you here
+Final year project done by Soh Myles (TP061320)

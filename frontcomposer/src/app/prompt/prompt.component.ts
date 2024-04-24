@@ -45,37 +45,37 @@ export class PromptComponent implements OnInit {
 
     if (matchingKeywords.includes('budget') && matchingKeywords.includes('gaming')) {
       console.log('Both "budget" and "gaming" exist');
-      this.service.post('computer/component_names/', 1).subscribe(data => {
+      this.service.post('computer/getcomputer/', 1).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('cheap') && matchingKeywords.includes('gaming')) {
       console.log('Both "cheap" and "gaming" exist');
-      this.service.post('computer/component_names/', 1).subscribe(data => {
+      this.service.post('computer/getcomputer/', 1).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('extreme') && matchingKeywords.includes('gaming')) {
       console.log('Both "extreme" and "gaming" exist');
-      this.service.post('computer/component_names/', 2).subscribe(data => {
+      this.service.post('computer/getcomputer/', 2).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('expensive') && matchingKeywords.includes('gaming')) {
       console.log('Both "expensive" and "gaming" exist');
-      this.service.post('computer/component_names/', 3).subscribe(data => {
+      this.service.post('computer/getcomputer/', 3).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('gaming')) {
       console.log('Both "fast" and "gaming" exist');
-      this.service.post('computer/component_names/', 2).subscribe(data => {
+      this.service.post('computer/getcomputer/', 2).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('extreme')) {
       console.log('Both "fast" and "extreme" exist');
-      this.service.post('computer/component_names/', 3).subscribe(data => {
+      this.service.post('computer/getcomputer/', 3).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }

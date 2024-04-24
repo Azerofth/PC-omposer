@@ -11,6 +11,7 @@ class User(models.Model):
         return self.username
     
 class CPU(models.Model):
+    cpu_id = models.AutoField(primary_key=True)
     cpu_brand = models.CharField(max_length=60)
     cpu_name = models.CharField(max_length=60)
     cpu_chipset = models.CharField(max_length=60)
@@ -19,6 +20,7 @@ class CPU(models.Model):
         return self.cpu_name
 
 class GPU(models.Model):
+    gpu_id = models.AutoField(primary_key=True)
     gpu_brand = models.CharField(max_length=60)
     gpu_name = models.CharField(max_length=60)
     gpu_performance= models.CharField(max_length=60)
@@ -27,6 +29,7 @@ class GPU(models.Model):
         return self.gpu_name
 
 class RAM(models.Model):
+    ram_id = models.AutoField(primary_key=True)
     ram_brand = models.CharField(max_length=60)
     ram_name = models.CharField(max_length=60)
     ram_type = models.CharField(max_length=60)
@@ -35,6 +38,7 @@ class RAM(models.Model):
         return self.ram_name
 
 class Storage(models.Model):
+    storage_id = models.AutoField(primary_key=True)
     storage_brand = models.CharField(max_length=60)
     storage_name = models.CharField(max_length=60)
     storage_capacity = models.CharField(max_length=60)
@@ -43,6 +47,7 @@ class Storage(models.Model):
         return self.storage_name
 
 class PowerSupply(models.Model):
+    power_supply_id = models.AutoField(primary_key=True)
     power_supply_brand = models.CharField(max_length=60)
     power_supply_name = models.CharField(max_length=60)
     power_supply_rating = models.CharField(max_length=60)
@@ -51,6 +56,7 @@ class PowerSupply(models.Model):
         return self.power_supply_name
 
 class Case(models.Model):
+    case_id = models.AutoField(primary_key=True)
     case_brand = models.CharField(max_length=60)
     case_name = models.CharField(max_length=60)
     case_size = models.CharField(max_length=60)
@@ -58,6 +64,7 @@ class Case(models.Model):
         return self.case_name
 
 class Motherboard(models.Model):
+    motherboard_id = models.AutoField(primary_key=True)
     motherboard_brand = models.CharField(max_length=60)
     motherboard_name = models.CharField(max_length=60)
     motherboard_size = models.CharField(max_length=60)
@@ -74,7 +81,7 @@ class Computer(models.Model):
     power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE)
     case = models.ForeignKey(Case, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=0)
 
 
 

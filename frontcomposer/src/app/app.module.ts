@@ -23,7 +23,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { ToastModule } from 'primeng/toast';
 import { TableModule } from 'primeng/table';
 import { MessagesModule } from 'primeng/messages';
-
+import { ProgressBarModule } from 'primeng/progressbar';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 
 //Website components
@@ -77,6 +78,8 @@ import { PromptComponent } from './prompt/prompt.component';
     TableModule,
     RatingModule,
     MessagesModule,
+    ProgressBarModule,
+    MultiSelectModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent }])
   ],

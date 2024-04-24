@@ -11,7 +11,10 @@ import { PrimeNGConfig } from 'primeng/api';
 export class NavbarComponent {
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token === 'loggedin';
+    if (token == null) {
+      return false;
+    }
+    return true;
   }
   constructor(public router: Router, private primengConfig: PrimeNGConfig){}
   ngOnInit() {

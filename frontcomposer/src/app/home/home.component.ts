@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -37,7 +38,10 @@ export class HomeComponent {
   }
   isLoggedIn(): boolean {
     const token = localStorage.getItem('token');
-    return token === 'loggedin';
+    if (token == null) {
+      return false;
+    }
+    return true;
   }
   ngOnInit() {
     this.primengConfig.ripple = true;
