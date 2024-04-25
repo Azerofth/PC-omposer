@@ -63,6 +63,25 @@ class userViewset(viewsets.ModelViewSet):
             return JsonResponse({'status': 'failed', 'reason': f'Missing key: {str(e)}'}, status=400)
         except Exception as e:
             return JsonResponse({'status': 'failed', 'reason': str(e)}, status=500)
+        
+    @action(detail=False, methods=['post'])
+    def getUserData(self, request, *args, **kwargs):
+        try:
+            received_data = json.loads(request.body.decode('utf-8'))
+            user = User.objects.get(user_id=received_data)
+            user_data = {
+                'user_id': user.user_id,
+                'username': user.username,
+                'email': user.email,
+                'password': user.password
+            }
+            return JsonResponse(user_data)
+        except ObjectDoesNotExist:
+            return JsonResponse({'status': 'failed', 'reason': 'User does not exist.'}, status=404)
+        except KeyError as e:
+            return JsonResponse({'status': 'failed', 'reason': f'Missing key: {str(e)}'}, status=400)
+        except Exception as e:
+            return JsonResponse({'status': 'failed', 'reason': str(e)}, status=500)
 
 @csrf_exempt
 def register_view(request):

@@ -1,9 +1,8 @@
 <div class="card">
     <p-tabMenu [model]="menuItems" [activeItem]="activeItem"></p-tabMenu>
 </div>
-
 <div *ngIf="selectedItem == 1">
-    <h3>Dashboard</h3>
+  <h3>Computer Builds by You</h3>
     <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped p-datatable-gridlines" [showCurrentPageReport]="true" [rows]="7" [paginator]="true"
     [resizableColumns]="true" [rowsPerPageOptions]="[5, 10, 20]">
       <ng-template pTemplate="header">
@@ -89,7 +88,7 @@
             <br />
             <div>
               <button pButton class="p-button-secondary rounded text-white p-2" type="submit" (click)="updateUser()">
-                <i class= "pi pi-save"></i>
+                <i class="pi pi-save"></i>
                 Save
               </button>
             </div>

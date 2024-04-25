@@ -199,6 +199,11 @@
             </div>
         </ng-template>
     </p-stepperPanel>
+
+
+<!-- MOTHERBOARD AND RAM SECTION -->
+
+
     <p-stepperPanel header="Motherboard and RAM">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
@@ -308,17 +313,17 @@
                             <div class="flex flex-column h-16rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    C. Your motherboard may only have tabs on one side to push down.
+                                    A. Your motherboard may only have tabs on one side to push down.
                                     <br/><br/>
-                                    D.Typically if there is a white sticker on your memory sticks, this
+                                    B.Typically if there is a white sticker on your memory sticks, this
                                     white sticker will be facing into the board, towards where the
                                     CPU socket is located.
                                     <br/><br/>
-                                    E. Make
+                                    C. Make
                                     sure the RAM matches the openings on the motherboard lanes.
                                     Otherwise, it will not go in.
                                     <br/><br/>
-                                    F. Make sure that the gold connectors are properly aligned before
+                                    D. Make sure that the gold connectors are properly aligned before
                                     applying force. Press down until you hear a click. Be careful, but
                                     don't be afraid to push firmly, it may require some extra force.
                                     <img src="assets/adventure/RAMInstall1.png">
@@ -338,6 +343,13 @@
             </div>
         </ng-template>
     </p-stepperPanel>
+
+
+
+    <!--STORAGE AND COOLER-->
+
+
+
     <p-stepperPanel header="Storage and Cooler">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
@@ -348,7 +360,15 @@
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    After careful installation of the CPU and memory onto the motherboard.  
+                                    After careful installation of the CPU and memory onto the motherboard, 
+                                    <br/>
+                                    you explore around the room for a little bit and found a face on the wall, with its mouth open.
+                                    <br/>
+                                    Inside, you found a long, slim artifact that has 'M.2 NVME SSD' etched on it.
+                                    <br/>
+                                    You flip through your notes and found that this is the storage for the computer, and it is much faster than the traditional HDD.
+                                    <br/>
+                                    Upon inspection on the motherboard, theres a slot for this artifact, and it is located near the CPU socket. 
                                     <img src="assets/adventure/NVME.png">
                                 </div>
                             </div>
@@ -358,10 +378,165 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Cooler">
+                    <p-stepperPanel header="Installation 1">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-13rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Locate the M.2 slot on your motherboard. It is usually located near the CPU socket.
+                                    <br/>
+                                    B. Remove the screws from the M.2 slot cover.
+                                    <br/>
+                                    Some boards the screws are separated in the motherboard box.
+                                    <br/>
+                                    Set the screws aside in a safe place.
+                                    <img src="assets/adventure/SSDSlot.png">
+                                    <img src="assets/adventure/SSDInstall1.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Installation 2">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    D. Insert the M.2 NVME SSD into the slot at a 30-degree angle. Do not force it in.
+                                    <br/>
+                                    E. Push down and secure the M.2 NVME SSD with the screws you set aside.
+                                    <br/>
+                                    <img src="assets/adventure/SSDInstall2.png">
+                                    <img src="assets/adventure/SSDInstall3.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Cooler Crossroads">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-18rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After installing the SSD, you found a door that leads to a room with another crossroads.
+                                    <br/>
+                                    On the left, you see a room with a water symbol, and on the right, you see a room with a wind symbol.
+                                    <br/>
+                                    Looking on the map that you have, you see that you have to choose one of the two to continue your adventure.
+                                    <br/>
+                                    (If you chose the wind symbol, please choose the panel with the title Air Cooling)
+                                    <br/>
+                                    (If you chose the water symbol, please choose the panel with the title Liquid Cooling)
+                                    <img src="assets/adventure/CoolerMap.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Air Cooling">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-12rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    You have chosen the path of the wind, the room was filled with a cool breeze.
+                                    <br/>
+                                    In the middle of the room, you see a Cooler artifact that is placed on a pedestal, the fan was spinning, generating the cool breeze that you felt.
+                                    <br/>
+                                    As you approached the artifact, the fan stops spinning and sits quietly on the pedestal.
+                                    <br/>
+                                    <img src="assets/adventure/AirCooler.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Liquid Cooler">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    You have chosen the path of the water, the room was filled with the sound of gentle flow of water.
+                                    <img src="assets/adventure/LiquidCooler.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
+            </div>
+            <div class="flex py-4 gap-2">
+                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
+    </p-stepperPanel>
+
+
+
+<!--CASE AND POWER SUPPLY-->
+
+
+
+    <p-stepperPanel header="Case and power supply">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                   Content
+                                    
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-14rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     Content
@@ -374,122 +549,13 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Case">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-                            <div class="flex flex-column h-12rem">
-                                <div
-                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Final Content
-                                </div>
-                            </div>
-                            <div class="flex pt-4 justify-content-start">
-                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                </p-stepper>
-            </div>
-            <div class="flex py-4 gap-2">
-                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
-            </div>
-        </ng-template>
-    </p-stepperPanel>
-    <p-stepperPanel header="Case and power supply">
-        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-            let-index="index">
-            <div>
-                <p-stepper orientation="vertical">
-                    <p-stepperPanel header="The Motherboard">
-                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-15rem">
-                                <div
-                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    <img src="assets/adventure/CPUMobo.png">
-                                    You follow the lights in the corridor that lead you to a very spacious room.
-                                    <br/>
-                                    In the room, you see another artifact that is placed on a pedestal. Theres a text on the pedestal that reads, The Motherboard.
-                                    <br/>
-                                    As you apporach the motherboard, you see that in the middle it has a socket which aligns with the CPU you have chosen.
-                                    <br/>
-                                    (If you chose AMD, please choose the panel with the title AMD)
-                                    <br />
-                                    (If you chose Intel, please choose the panel with the title Intel.)
-                                </div>
-                            </div>
-                            <div class="flex pt-4 justify-content-end">
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
-                                    (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                    <p-stepperPanel header="Intel">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-                            let-index="index">
-                            <div class="flex flex-column h-15rem">
-                                <div
-                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    A. Open the CPU bracket on your motherboard by pushing on the metal retention arm. Do not remove black cover.
-                                    <br/><br/>
-                                    B. Align the arrows on the CPU and the socket. Do not force. Place the CPU down gently, taking care not to move it once seated.
-                                    <br/><br/>
-                                    C. Pull down and latch the metal retention arm onto the socket.
-                                    <br/><br/>
-                                    D. The plastic CPU cover should come off itself once the bracket is
-                                    closed. Do not discard this cover in case you need to return or
-                                    exchange it.
-                                    <img src="assets/adventure/IntelSocket1.png">
-                                    <img src="assets/adventure/IntelSocket2.png">
-                                    
-                                </div>
-                            </div>
-                            <div class="flex pt-4 justify-content-between">
-                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
-                                    (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                    <p-stepperPanel header="Ryzen">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-                            let-index="index">
-                            <div class="flex flex-column h-14rem">
-                                <div
-                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    A. Unlatch the CPU socket by pressing on the metal retention arm and bringing it up all the way.
-                                    <br/><br/>
-                                    B. Hold the CPU by the sides. Do NOT touch the gold pins. Identify the corner of the CPU that has the arrow.
-                                    <br/><br/>
-                                    C. Align the marked corner (dot or triangle) on the CPU with the marked corner of the socket. Do not force or move. Place gently.
-                                    <br/><br/>
-                                    D. Pull down and latch the metal retention arm onto the socket.
-                                    <img src="assets/adventure/RyzenSocket1.png">
-                                    <img src="assets/adventure/RyzenSocket2.png">
-                                </div>
-                            </div>
-                            <div class="flex pt-4 justify-content-between">
-                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
-                                    (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                    <p-stepperPanel header="RAM / Memory sticks">
+                    <p-stepperPanel header="Header">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-13rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    After securing the CPU into the socket, you see a box appeared from the ground, inside the box there are two rectangle artifacts.
-                                    <br/>
-                                    You flip through your notes, and found out that these are called as 'RAM sticks' or 'Memory sticks'. They serve as the short term memory for the computer.
-                                    <br/>
-                                    You noticed that there are 4 (some times 2) rectangle slots next to the CPU socket with tabs on the top and bottom of it.
-                                    <br/>
-                                    They seem to align with the Memory Sticks as they have a space between a long and short golden line.
-                                    <br/>
-                                    Inside your notes (Motherboard manual) you see that you have to install into very specific slots first.
-                                    <br/>
+                                    Contnet
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -499,26 +565,12 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Installing the RAM">
+                    <p-stepperPanel header="Header">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-16rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    C. Your motherboard may only have tabs on one side to push down.
-                                    <br/><br/>
-                                    D.Typically if there is a white sticker on your memory sticks, this
-                                    white sticker will be facing into the board, towards where the
-                                    CPU socket is located.
-                                    <br/><br/>
-                                    E. Make
-                                    sure the RAM matches the openings on the motherboard lanes.
-                                    Otherwise, it will not go in.
-                                    <br/><br/>
-                                    F. Make sure that the gold connectors are properly aligned before
-                                    applying force. Press down until you hear a click. Be careful, but
-                                    don't be afraid to push firmly, it may require some extra force.
-                                    <img src="assets/adventure/RAMInstall1.png">
-                                    <img src="assets/adventure/RAMInstall2.png">
+                                    Content
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">
@@ -534,26 +586,117 @@
             </div>
         </ng-template>
     </p-stepperPanel>
+
+
+    <!--GRAPHICS CARD-->
+
+
     <p-stepperPanel header="GPU">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-15rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                   Content
+                                    
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-14rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-13rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Contnet
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex flex-column h-16rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Content
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
+            </div>
+            <div class="flex py-4 gap-2">
+                <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
+                <p-button label="Next" (onClick)="nextCallback.emit()" />
+            </div>
+        </ng-template>
+    </p-stepperPanel>
+
+
+<!--Final touches-->
+
+
+
+    <p-stepperPanel header="Final">
+        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+            let-index="index">
+            <div>
+                <p-stepper orientation="vertical">
                     <p-stepperPanel header="The Motherboard">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    <img src="assets/adventure/CPUMobo.png">
-                                    You follow the lights in the corridor that lead you to a very spacious room.
-                                    <br/>
-                                    In the room, you see another artifact that is placed on a pedestal. Theres a text on the pedestal that reads, The Motherboard.
-                                    <br/>
-                                    As you apporach the motherboard, you see that in the middle it has a socket which aligns with the CPU you have chosen.
-                                    <br/>
-                                    (If you chose AMD, please choose the panel with the title AMD)
-                                    <br />
-                                    (If you chose Intel, please choose the panel with the title Intel.)
+                                    Content
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -568,18 +711,7 @@
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    A. Open the CPU bracket on your motherboard by pushing on the metal retention arm. Do not remove black cover.
-                                    <br/><br/>
-                                    B. Align the arrows on the CPU and the socket. Do not force. Place the CPU down gently, taking care not to move it once seated.
-                                    <br/><br/>
-                                    C. Pull down and latch the metal retention arm onto the socket.
-                                    <br/><br/>
-                                    D. The plastic CPU cover should come off itself once the bracket is
-                                    closed. Do not discard this cover in case you need to return or
-                                    exchange it.
-                                    <img src="assets/adventure/IntelSocket1.png">
-                                    <img src="assets/adventure/IntelSocket2.png">
-                                    
+                                    Content                                    
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -595,15 +727,7 @@
                             <div class="flex flex-column h-14rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    A. Unlatch the CPU socket by pressing on the metal retention arm and bringing it up all the way.
-                                    <br/><br/>
-                                    B. Hold the CPU by the sides. Do NOT touch the gold pins. Identify the corner of the CPU that has the arrow.
-                                    <br/><br/>
-                                    C. Align the marked corner (dot or triangle) on the CPU with the marked corner of the socket. Do not force or move. Place gently.
-                                    <br/><br/>
-                                    D. Pull down and latch the metal retention arm onto the socket.
-                                    <img src="assets/adventure/RyzenSocket1.png">
-                                    <img src="assets/adventure/RyzenSocket2.png">
+                                    Content
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -619,16 +743,7 @@
                             <div class="flex flex-column h-13rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    After securing the CPU into the socket, you see a box appeared from the ground, inside the box there are two rectangle artifacts.
-                                    <br/>
-                                    You flip through your notes, and found out that these are called as 'RAM sticks' or 'Memory sticks'. They serve as the short term memory for the computer.
-                                    <br/>
-                                    You noticed that there are 4 (some times 2) rectangle slots next to the CPU socket with tabs on the top and bottom of it.
-                                    <br/>
-                                    They seem to align with the Memory Sticks as they have a space between a long and short golden line.
-                                    <br/>
-                                    Inside your notes (Motherboard manual) you see that you have to install into very specific slots first.
-                                    <br/>
+                                    Content
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -643,21 +758,7 @@
                             <div class="flex flex-column h-16rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    C. Your motherboard may only have tabs on one side to push down.
-                                    <br/><br/>
-                                    D.Typically if there is a white sticker on your memory sticks, this
-                                    white sticker will be facing into the board, towards where the
-                                    CPU socket is located.
-                                    <br/><br/>
-                                    E. Make
-                                    sure the RAM matches the openings on the motherboard lanes.
-                                    Otherwise, it will not go in.
-                                    <br/><br/>
-                                    F. Make sure that the gold connectors are properly aligned before
-                                    applying force. Press down until you hear a click. Be careful, but
-                                    don't be afraid to push firmly, it may require some extra force.
-                                    <img src="assets/adventure/RAMInstall1.png">
-                                    <img src="assets/adventure/RAMInstall2.png">
+                                    Content
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">

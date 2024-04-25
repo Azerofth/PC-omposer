@@ -21,14 +21,14 @@ export class DashboardComponent implements OnInit {
   activeItem: MenuItem | undefined;
   tokenID = parseInt(localStorage.getItem('token') || '');
   
-  id: number = this.tokenID; //admin is 1 so any other users will be +1 of it.
+  id: number = this.tokenID +1; //admin is 1 so any other users will be +1 of it.
   constructor(private formBuilder: FormBuilder, private service: SharedService, private route: Router, private activatedRoute: ActivatedRoute) {
     
     this.updateGroup = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', Validators.required],
-      id: [this.id + 1]
+      id: [this.id]
     })
   }
   computerList!: any[];
@@ -38,31 +38,23 @@ export class DashboardComponent implements OnInit {
     this.selectedItem = item;
     this.activeItem = this.menuItems[item - 1];
   }
-
-
   ngOnInit() {
     this.service.post('computer/getUserComputers/', this.id).subscribe((data: any) => {
       this.computerList = Object.values(data);
     });
-    if (this.activatedRoute.snapshot.params[this.id]) {
-      this.id = this.activatedRoute.snapshot.params[this.id];
-      this.getUser();
-    }
+    this.getUser();
   }
-
   getUser() {
-    this.service.get('user/').subscribe((data: any) => {
-      const matchedData = data.find((data: any) => data.user_id == this.id)
-    if (matchedData){
+    this.service.post('user/getUserData/', this.id).subscribe((data: any) => {
+      console.log(data);
+      
       this.updateGroup.patchValue({
-        username: matchedData.username,
-        password: matchedData.password,
-        email: matchedData.email
+        username: data.username,
+        password: data.password,
+        email: data.email
       });
-    }
     });
   }
-
   updateUser() {
     if (this.updateGroup.valid) {
       this.service.patch('user/' + this.id + '/', this.updateGroup.value).subscribe((data: any) => {

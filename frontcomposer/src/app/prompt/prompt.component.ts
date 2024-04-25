@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from '../services/shared.service';
+//Imports for the PDF conversion
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
+
 
 
 @Component({
@@ -26,7 +30,7 @@ export class PromptComponent implements OnInit {
     this.value = value
     alert('thank you for your feedback');
   }
-  
+
   processPromptValue(promptValue: string) {
 
     const lowercasePromptValue = promptValue.toLowerCase();
@@ -50,13 +54,13 @@ export class PromptComponent implements OnInit {
     }
     else if (matchingKeywords.includes('cheap') && matchingKeywords.includes('gaming')) {
       console.log('Both "cheap" and "gaming" exist');
-      this.service.post('computer/getcomputer/', 1).subscribe(data => {
+      this.service.post('computer/getcomputer/', 2).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
     else if (matchingKeywords.includes('extreme') && matchingKeywords.includes('gaming')) {
       console.log('Both "extreme" and "gaming" exist');
-      this.service.post('computer/getcomputer/', 2).subscribe(data => {
+      this.service.post('computer/getcomputer/', 3).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
@@ -68,7 +72,7 @@ export class PromptComponent implements OnInit {
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('gaming')) {
       console.log('Both "fast" and "gaming" exist');
-      this.service.post('computer/getcomputer/', 2).subscribe(data => {
+      this.service.post('computer/getcomputer/', 3).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }
@@ -102,6 +106,23 @@ export class PromptComponent implements OnInit {
             break;
           // Add cases for additional keywords as needed
         }
+      });
+    }
+  }
+  public convetToPDF() {
+    var data = document.getElementById('contentToConvert');
+    if (data) {
+      html2canvas(data).then(canvas => {
+        // Few necessary setting options
+        var imgWidth = 208;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png')
+        let pdf = new jspdf('l', 'mm', 'a5'); // A4 size page of PDF
+        var position = 0;
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdf.save('computer_spec.pdf'); // Generated PDF
       });
     }
   }
