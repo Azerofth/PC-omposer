@@ -34,3 +34,6 @@ class Motherboard(admin.ModelAdmin):
 class Computer(admin.ModelAdmin):
     list_display = ['cpu_name','motherboard', 'ram', 'storage', 'gpu_name', 'power_supply', 'case', 'user', 'likes']
 
+@admin.register(User)
+class User(admin.ModelAdmin):
+    list_display = ['username', 'email', 'password', 'phone_number', 'verification']

@@ -14,7 +14,6 @@ export class PromptComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: SharedService) { }
   promptValue: string = '';
   computerList!: any[];
-  partsNamelist!: any[];
   value!: number;
   ngOnInit() {
     this.route.queryParams.subscribe(params => {

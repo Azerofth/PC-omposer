@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'backpcomposer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pc-composer',
+        'NAME': 'pc-omposer',
         'USER': 'postgres',
         'PASSWORD': 'Nice10day',
         'HOST': '127.0.0.1',

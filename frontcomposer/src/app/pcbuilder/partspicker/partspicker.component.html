@@ -57,7 +57,7 @@
                 </th>
                 <td class="px-6 py-4">
                     <select id="cpuID" name="cpuID" formControlName="cpuID">
-                        <option  *ngFor="let cpu of cpuList" [value]="cpu.cpu_name">{{ cpu.cpu_name }}</option>
+                        <option  pPaginator *ngFor="let cpu of cpuList" [value]="cpu.cpu_name">{{ cpu.cpu_name }}</option>
                     </select>
                 </td>
             </tr>

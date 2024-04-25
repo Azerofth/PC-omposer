@@ -15,19 +15,13 @@ from django.core.exceptions import ObjectDoesNotExist
 def login_view(request):
     if request.method == 'POST':
         data = json.loads(request.body.decode('utf-8'))
-        print(data)
         username = data.get('username')
         password = data.get('password')
-        print(f"Username: {username}")
-        print(f"Password: {password}")
         if username is not None and password is not None:
             user =authenticate(request, username=username, password=password)
-            print(user)
             if user is not None:
                 login(request, user)
-                print(f"Welcome, {username}")
-                token = request.session.get('token', (user.id-1))
-                print(f"Token: {token}")
+                token = request.session.get('token', (user.id-1)) #-1 was used because admin is taking up space 1
                 response = JsonResponse({'token': token})
                 return response
             else:
@@ -46,10 +40,8 @@ class userViewset(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def duplicates(self, request, *args, **kwargs):
         received_data = json.loads(request.body.decode('utf-8'))
-        print(received_data)
         user_count = self.queryset.filter(
             email=received_data['email']).count()
-        print(user_count)
         if user_count > 0:
             return Response('no')
         else:
@@ -59,11 +51,10 @@ class userViewset(viewsets.ModelViewSet):
     def updateUser(self, request, *args, **kwargs):
         try:
             received_data = json.loads(request.body.decode('utf-8'))
-            username = received_data.get('username')
-            user = ActUser.objects.get(username=username)
+            user = ActUser.objects.get(id=received_data.get('id'))
+            user.username = received_data.get('username')
             user.email = received_data.get('email')
-            user.phone_number = received_data.get('phone_number')
-            user.verification = received_data.get('verification')
+            user.set_password(received_data.get('password'))
             user.save()
             return JsonResponse({'status': 'ok'}, status=200)
         except ObjectDoesNotExist:
@@ -223,7 +214,7 @@ class computerViewset(viewsets.ModelViewSet):
         case = data.get('caseID')
         case_obj = Case.objects.get(case_name=case)
         user = data.get('userID')
-        user_obj = User.objects.get(id=user)
+        user_obj = User.objects.get(user_id=user)
         if cpu and motherboard and ram and storage and gpu and psu and case:
             new_computer = Computer.objects.create(
                 cpu_name= cpu_obj,
@@ -239,5 +230,53 @@ class computerViewset(viewsets.ModelViewSet):
             return JsonResponse({'status': 'ok'})
         else:
             return JsonResponse({'status': 'failed', 'reason': 'Invalid data'}, status=401)
+        
+    @action(detail=False, methods=['post'])
+    def getUserComputers(self,request):
+        data = json.loads(request.body.decode('utf-8'))
+        filter1 = self.queryset.filter(user_id=data)
+        querylist = filter1.values()
+        print(querylist)
+        computer_data = []
+        try:
+            for test in querylist:
+                cpu = str(CPU.objects.get(pk=test['cpu_name_id']))
+                cpu_spec = str(CPU.objects.get(pk=test['cpu_name_id']).cpu_performance)
+                motherboard = str(Motherboard.objects.get(pk=test['motherboard_id']))
+                motherboard_spec = str(Motherboard.objects.get(pk=test['motherboard_id']).motherboard_chipset)
+                ram = str(RAM.objects.get(pk=test['ram_id']))
+                ram_spec = str(RAM.objects.get(pk=test['ram_id']).ram_performance)
+                storage = str(Storage.objects.get(pk=test['storage_id']))
+                storage_spec = str(Storage.objects.get(pk=test['storage_id']).storage_capacity)
+                gpu = str(GPU.objects.get(pk=test['gpu_name_id']))
+                gpu_spec = str(GPU.objects.get(pk=test['gpu_name_id']).gpu_performance)
+                power_supply = str(PowerSupply.objects.get(pk=test['power_supply_id']))
+                power_supply_spec = str(PowerSupply.objects.get(pk=test['power_supply_id']).power_supply_wattage)
+                case = str(Case.objects.get(pk=test['case_id']))
+                case_spec = str(Case.objects.get(pk=test['case_id']).case_size)
+                likes = test['likes']
+                computer_data.append({
+                    'cpu_name': cpu,
+                    'cpu_spec': cpu_spec,
+                    'motherboard': motherboard,
+                    'motherboard_spec': motherboard_spec,
+                    'ram': ram,
+                    'ram_spec': ram_spec,
+                    'storage': storage,
+                    'storage_spec': storage_spec,
+                    'gpu_name': gpu,
+                    'gpu_spec': gpu_spec,
+                    'power_supply': power_supply,
+                    'power_supply_spec': power_supply_spec,
+                    'case': case,
+                    'case_spec': case_spec,
+                    'likes': likes
+                })
+            print(computer_data)
+            return Response(computer_data)
+            
+        except:
+            return Response('No data found')
+    
         
         

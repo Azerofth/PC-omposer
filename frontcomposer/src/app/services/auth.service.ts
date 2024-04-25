@@ -11,12 +11,9 @@ export class AuthService {
     this.service.post('logout/').subscribe(
       (response: any) => {
         if (response.status === 'ok') {
-          console.log(response.status)
           localStorage.removeItem('token');
-          alert('logged out worked')
           this.router.navigate(['logout/']);
         } else {
-          console.log(response.status);
           alert("wtf logout fail again");
         }
       },
@@ -56,16 +53,6 @@ export class AuthService {
           alert("Login failed! Please try again!");
         }
       );
-  }
-  
-  allowuser() {
-    const token = localStorage.getItem('token');
-    if (token == 'loggedin') {
-      console.log("User allowed");
-    } else {
-      alert("You are not logged in, please login first");
-      this.router.navigate(['/home']);
-    }
   }
 
   constructor(private service: SharedService, private router: Router) { }
