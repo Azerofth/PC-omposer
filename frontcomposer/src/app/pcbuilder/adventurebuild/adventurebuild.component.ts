@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './adventurebuild.component.css'
 })
 export class AdventurebuildComponent {
+  doSurvey(){
+    window.location.href = 'https://forms.gle/4aDwYgpo279AwTLS8';
+  }
 }

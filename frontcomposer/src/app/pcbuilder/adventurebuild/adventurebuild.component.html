@@ -424,8 +424,9 @@
                         </ng-template>
                     </p-stepperPanel>
                     <p-stepperPanel header="Cooler Crossroads">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-                            <div class="flex flex-column h-18rem">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-19rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     After installing the SSD, you found a door that leads to a room with another crossroads.
@@ -448,16 +449,22 @@
                         </ng-template>
                     </p-stepperPanel>
                     <p-stepperPanel header="Air Cooling">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
                             <div class="flex flex-column h-12rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     You have chosen the path of the wind, the room was filled with a cool breeze.
                                     <br/>
-                                    In the middle of the room, you see a Cooler artifact that is placed on a pedestal, the fan was spinning, generating the cool breeze that you felt.
+                                    In the middle of the room, you see a Air Cooler artifact that is placed on a pedestal, the fan was spinning rapidly, generating the cool breeze that you felt.
                                     <br/>
                                     As you approached the artifact, the fan stops spinning and sits quietly on the pedestal.
                                     <br/>
+                                    Upon inspection, you can see that the cooler has bronze like fins that are interconnected with each other into a metal heatsink with a fan sitting on top of it.
+                                    <br/>
+                                    Air cooling is simple to install, but it may not be as efficient as liquid cooling.
+                                    <br/>
+                                    [Please refer to your cooler manual for installation guide.]
                                     <img src="assets/adventure/AirCooler.png">
                                 </div>
                             </div>
@@ -468,12 +475,22 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Liquid Cooler">
+                    <p-stepperPanel header="Liquid Cooling">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     You have chosen the path of the water, the room was filled with the sound of gentle flow of water.
+                                    <br/>
+                                    In the middle of the room, you see a AIO (All-in-One) Liquid Cooler artifact that is placed on a pedestal.
+                                    <br/>
+                                    Upon closer inspection, the cooler has a block with tubes that are connected to a radiator with a fan on it.
+                                    <br/>
+                                    Liquid cooling is more efficient than air cooling, as it can transfer heat more effectively. 
+                                    <br/>
+                                    But the installation process is more complex.
+                                    <br/>
+                                    [Please refer to your cooler manual for installation guide.]
                                     <img src="assets/adventure/LiquidCooler.png">
                                 </div>
                             </div>
@@ -502,12 +519,18 @@
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Case">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    Bringing the motherboard that you have installed with the previous components, you stumble upon a room with bright lights.
+                                    <br/>
+                                    In the middle of the room, you see a black metal box that is placed on a pedestal.
+                                    <br/>
+                                    As you approached the artifact, you see that the box has a transparent side panel.
+                                    <br/>
+                                    <img src="assets/adventure/CaseRoom.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -516,15 +539,69 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Remove side panels">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-19rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    Before installing any of the components into the case, we would need to first prepare the case for installation.
+                                    <br/>
+                                    A. Remove the side panels of the case by unscrewing the screws on the back of the case.
+                                    <br/>
+                                    B. You would see a box that contains the screws for the motherboard standoffs and cables for the case.
+                                    <img src="assets/adventure/CasePrep1.png">
+                                    <img src="assets/adventure/CasePrep2.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Box of screws and cables">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-17rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    There will be a box that sits inside a hard drive cage or a compartment in the case.
+                                    <br/>
+                                    Inside this box contains all the motherboard standoffs that would be used for the motherboard installation.
+                                    <br/>
+                                    There will also be a bag of screws that would be used for the installation of the power supply and the storage drives.
+                                    <br/>
+                                    [Box content would vary depending on case chosen.]
+                                    <img src="assets/adventure/CaseScrews.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Case Preperation 1">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                   Content
-                                    
-                                </div>
+                                    A. Lay the case on its side with the transparent panel side up.
+                                    <br/><br/>
+                                    B. Check if the motherboard has a IO Shield, its either pre-installed or you would have to install it yourself.
+                                    <br/><br/>
+                                    C. If you have a separated IO Shield, install it into the back of the case.
+                                    <br/><br/>
+                                    D. Bend the tabs that are on the IO Shield to allow clearances for your motherboard ports.
+                                    <br/><br/>
+                                    [Do not bend the tabs all the way. Ensure that they are bent enough to allow the motherboard ports to be inserted.]
+                                    <img src="assets/adventure/CaseInstall1.png">    
+                                    <img src="assets/adventure/CaseInstall2.png">                            
+                            </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
                                 <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
@@ -533,14 +610,22 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Case Preperation 2">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-14rem">
+                            <div class="flex flex-column h-12rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
-                                </div>
+                                    Ensure that your motherboard's standoffs are installed in the case and in the correct holes.
+                                    <br/>
+                                    You can check by hovering the motherboard above the standoffs and aligning with the standoffs.
+                                    <br/>
+                                    If the holes align with the standoffs, then you are good to go. 
+                                    <br/>
+                                    If you are missing some, install them in the correct holes.
+                                    <br/>
+                                    If a standoff is under any part of your motherboard, please remove it or realocate it to the correct hole.             
+                            </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
                                 <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
@@ -549,14 +634,20 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Motherboard Installation">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-13rem">
+                            <div class="flex flex-column h-12rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Contnet
-                                </div>
+                                    E. Install the motherboard into the case by aligning the ports with the IO Shield and standoffs.
+                                    <br/><br/>
+                                    F. Secure the motherboard with the screws that came with the case.
+                                    <br/><br/>
+                                    [Ensure that the motherboard is secured and does not move when you shake the case.]
+                                    <br/><br/>
+                                    <img src="assets/adventure/CaseInstall3.png">     
+                            </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
                                 <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
@@ -565,12 +656,46 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Power Supply">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-19rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    After installing the motherboard, you continue your journey and 
+                                    <br/>
+                                    enter the next room which has the power supply artifact.
+                                    <br/>
+                                    The power supply is a black box with a fan on top or bottom of it with cables that come out of it.
+                                    <br/><br/>
+                                    A. Non modular power supplies have all the cables attached to it.
+                                    <br/>
+                                    B. Semi modular power supplies have some cables attached to it with connectors for additional cables.
+                                    <br/>
+                                    C. Fully modular power supplies have no cables attached to it, all cables are separated and can be attached as needed.
+                                    <img src="assets/adventure/PSUroom.png">
+                                    <img src="assets/adventure/PSU.png">
+                            </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Power Supply Installation">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
-                            <div class="flex flex-column h-16rem">
+                            <div class="flex flex-column h-12rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    For the purpose of this adventure, we will be installing a non-modular power supply.
+                                    <br/>
+                                    A. Place the power supply into the case with the fan facing down.
+                                    <br/>
+                                    B. Secure the power supply with the screws that came with the case.
+                                    <br/>
+                                    <img src="assets/adventure/PSUInstall.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">
@@ -588,20 +713,28 @@
     </p-stepperPanel>
 
 
-    <!--GRAPHICS CARD-->
+    <!--GRAPHICS CARD AND CABLE MANAGEMENT-->
 
 
-    <p-stepperPanel header="GPU">
+    <p-stepperPanel header="Cable management and GPU">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Cables">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-15rem">
+                            <div class="flex flex-column h-18rem">
                                 <div
                                     class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    As you install the power supply, you realised that you were not alone. 
+                                    <br/>
+                                    Connector cables started to appear and surround you like snakes.
+                                    <br/>
+                                    You bring out your trusty cable tie to defend yourself against the connectors.
+                                    <br/>
+                                    [Please consult your motherboard manual to know where to connect the cables.]
+                                    <img src="assets/adventure/CableManage.png">
+                                    <img src="assets/adventure/MBOManual.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-end">
@@ -610,14 +743,20 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Threat neutralised!">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-15rem">
+                            <div class="flex flex-column h-24rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                   Content
-                                    
+                                    Congratulations you have successfully managed the cables and connected them to the motherboard.
+                                    <br/>
+                                    Its one of the harder sections of building a computer, but you have done it!
+                                    <br/>
+                                    You see a door that leads to the final room, where the Graphics Card artifact is located.
+                                    <br/>
+                                    You take a deep breath and proceed to the final room.
+                                    <img src=" assets/adventure/CableManaged.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -627,13 +766,20 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="GPU">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-14rem">
+                            <div class="flex flex-column h-23rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    You enter the final room, and you see the Graphics Card artifact that is hanging above a slot.
+                                    <br/>
+                                    Depending on the graphics card, some may be longer or thicker than others.
+                                    <br/>
+                                    There are three factions that you can choose from: NVIDIA Geforce, AMD Radeon, and Intel ARC.
+                                    <br/>
+                                    Despite being from different factions, they all share the same design principle.
+                                    <img src="assets/adventure/GPU.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -643,13 +789,60 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Cable preparation">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-13rem">
+                            <div class="flex flex-column h-17rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Contnet
+                                    Before installing the GPU, Lets make sure that you have the necessary cables to power the GPU.
+                                    <br/>
+                                    A. Locate the PCIe power cables that came with the power supply.
+                                    <br/>
+                                    B. Depending on the GPU, you may need a 6-pin, 8-pin, or 6+2 pin PCIe power cable.
+                                    <br/>
+                                    <img src="assets/adventure/GPUCable.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Find the GPU PCIe Slot">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-17rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    On your motherboard, there should be a slot with a latch on the right side of the slot under the CPU socket.
+                                    <br/>
+                                    This is the PCIe slot where the GPU will be installed.
+                                    <br/>
+                                    <img src="assets/adventure/GPUSlot.png">
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Installing the GPU">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-25rem">
+                                <div
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. & B. Remove the PCIe slot covers from the case. If your case has a backplate, remove it for now.
+                                    <br/><br/>
+                                    C. Open the latch on the PCIe slot by pushing dow on the latch.
+                                    <br/><br/>
+                                    <img src="assets/adventure/GPUInstall1.png">
+                                    <img src="assets/adventure/GPUInstall2.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -664,7 +857,13 @@
                             <div class="flex flex-column h-16rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    D. & E. Align the GPU with the PCIe slot and the holes in the PCIe slot clovers and push down until you hear a click.
+                                    <br/><br/>
+                                    F. Secure the GPU with the screws that came with the case and reinstall the backplate as well.
+                                    <br/>
+                                    Finally connect the PCIe power cables to the GPU.
+                                    <img src="assets/adventure/GPUInstall3.png">
+                                    <img src="assets/adventure/GPUInstall4.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">
@@ -691,27 +890,38 @@
             let-index="index">
             <div>
                 <p-stepper orientation="vertical">
-                    <p-stepperPanel header="The Motherboard">
-                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-15rem">
+                    <p-stepperPanel header="Secure rear panels">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex flex-column h-19rem">
                                 <div
-                                    class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
+                                    A. Ensure that each hook on the rear side panels are secured and aligned with the case.
+                                    <br/>
+                                    B. Slide or swing the side panels back into the case. Ensure that there are no wires in the way.
+                                    <br/>
+                                    C. Secure the side panels with the screws that you have removed earlier.
+                                    <img src="assets/adventure/FinalSide1.png">
+                                    <img src="assets/adventure/FinalSide2.png">                                   
                                 </div>
                             </div>
-                            <div class="flex pt-4 justify-content-end">
+                            <div class="flex pt-4 justify-content-between">
                                 <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
                                     (onClick)="nextCallback.emit()" />
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Intel">
+                    <p-stepperPanel header="Secure front side panel">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-15rem">
+                            <div class="flex flex-column h-19rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content                                    
+                                    A. Slide the front side panel back into the case. Be careful if your front side panel is made of glass!
+                                    <br/>
+                                    B. Secure the front side panel with the screws that you have removed earlier.
+                                    <img src="assets/adventure/FinalSide3.png">
+                                    <img src="assets/adventure/FinalSide4.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -721,13 +931,14 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Ryzen">
+                    <p-stepperPanel header="Completed">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-14rem">
+                            <div class="flex flex-column h-18rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    
+                                    <img src="assets/adventure/Complete.png">
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -737,28 +948,19 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="RAM / Memory sticks">
-                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
-                            let-index="index">
-                            <div class="flex flex-column h-13rem">
-                                <div
-                                    class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
-                                </div>
-                            </div>
-                            <div class="flex pt-4 justify-content-between">
-                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
-                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
-                                    (onClick)="nextCallback.emit()" />
-                            </div>
-                        </ng-template>
-                    </p-stepperPanel>
-                    <p-stepperPanel header="Installing the RAM">
+                    <p-stepperPanel header="Extras">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-16rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
-                                    Content
+                                    A. Connect the power cable to the power supply and the wall outlet.
+                                    <br/>
+                                    B. Turn on the power supply switch and press the power button on the case.
+                                    <br/>
+                                    C. If you see the BIOS screen, congratulations! You have successfully built your computer.
+                                    <br/>
+                                    D. If you do not see the BIOS screen, please check the connections and ensure that all components are properly installed.
+                                    
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-start">
@@ -770,6 +972,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
+                <p-button label="Survey" severity="primary" (onClick)="doSurvey()" />
             </div>
         </ng-template>
     </p-stepperPanel>
