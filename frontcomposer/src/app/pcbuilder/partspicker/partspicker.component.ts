@@ -1,10 +1,35 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../../services/shared.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+interface CPU {
+  cpu_name: string,
+}
 
+interface GPU {
+  gpu_name: string,
+}
 
+interface MBO {
+  motherboard_name: string,
+}
+
+interface RAM {
+  ram_name: string,
+}
+
+interface Storage {
+  storage_name: string,
+}
+
+interface PSU {
+  power_supply_name: string,
+}
+
+interface Case {
+  case_name: string,
+}
 
 @Component({
   selector: 'app-partspicker',
@@ -13,15 +38,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class PartspickerComponent {
-  cpuList!: any[];
-  gpuList!: any[];
-  motherboardList!: any[];
-  ramList!: any[];
-  storageList!: any[];
-  psuList!: any[];
-  caseList!: any[];
+  cpuList!: CPU[];
+  selectedCPU!: CPU[];
+  gpuList!: GPU[];
+  selectedGPU!: GPU[];
+  motherboardList!: MBO[];
+  selectedMBO!: MBO[];
+  ramList!: RAM[];
+  selectedRAM!: RAM[];
+  storageList!:Storage[];
+  selectedStorage!: Storage[];
+  psuList!: PSU[];
+  selectedPSU!: PSU[];
+  caseList!: Case[];
+  selectedCase!: Case[];
+  tokenID = parseInt(localStorage.getItem('token') || '')
   computerForm: FormGroup;
-  constructor(private route: ActivatedRoute, private service: SharedService, private formBuilder: FormBuilder) {
+  constructor(private route: ActivatedRoute, private service: SharedService, private formBuilder: FormBuilder, private router: Router) {
     this.computerForm = this.formBuilder.group({
       cpuID: ['', Validators.required],
       gpuID: ['', Validators.required],
@@ -30,17 +63,17 @@ export class PartspickerComponent {
       storageID: ['', Validators.required],
       psuID: ['', Validators.required],
       caseID: ['', Validators.required],
-      userID: [localStorage.getItem('token') ]
+      userID: [this.tokenID + 1]
     });
    }
   onSubmit() {
-    console.log(this.computerForm);
     if (this.computerForm.valid) {
       this.service.post('computer/uploadComputer/', this.computerForm.value).subscribe(data => {
-        console.log(data);
       });
+      this.router.navigate(['/prompt'])
     } else {
       console.log("No data passed");
+      alert('Please select all parts');
     }
   }
   ngOnInit() {

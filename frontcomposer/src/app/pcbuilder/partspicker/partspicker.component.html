@@ -56,9 +56,7 @@
                     CPU
                 </th>
                 <td class="px-6 py-4">
-                    <select id="cpuID" name="cpuID" formControlName="cpuID">
-                        <option  pPaginator *ngFor="let cpu of cpuList" [value]="cpu.cpu_name">{{ cpu.cpu_name }}</option>
-                    </select>
+                    <p-multiSelect id="cpuID" name="cpuID" formControlName="cpuID" [selectionLimit]="1" [options]="cpuList" [(ngModel)]="selectedCPU" optionLabel="cpu_name"></p-multiSelect>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -66,9 +64,7 @@
                     GPU
                 </th>
                 <td class="px-6 py-4">
-                    <select id="gpuID" name="gpuID" formControlName="gpuID">
-                        <option *ngFor="let gpu of gpuList" [value]="gpu.gpu_name" >{{ gpu.gpu_name }}</option>
-                    </select>
+                    <p-multiSelect id="gpuID" name="gpuID" formControlName="gpuID" [selectionLimit]="1" [options]="gpuList" [(ngModel)]="selectedGPU" optionLabel="gpu_name"></p-multiSelect>
                 </td>
             </tr>
             <tr class="bg-white dark:bg-gray-800">
@@ -76,9 +72,7 @@
                    Motherboard
                 </th>
                 <td class="px-6 py-4">
-                    <select id="motherboardID" name="motherboardID" formControlName="motherboardID">
-                        <option *ngFor="let motherboard of motherboardList" [value]="motherboard.motherboard_name" >{{ motherboard.motherboard_name }}</option>
-                    </select>
+                    <p-multiSelect id="motherboardID" name="motherboardID" formControlName="motherboardID" [selectionLimit]="1" [options]="motherboardList" [(ngModel)]="selectedMBO" optionLabel="motherboard_name"></p-multiSelect>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -86,9 +80,7 @@
                     RAM
                 </th>
                 <td class="px-6 py-4">
-                    <select id="ramID" name="ramID" formControlName="ramID">
-                        <option *ngFor="let ram of ramList" [value]="ram.ram_name">{{ ram.ram_name }}</option>
-                    </select>
+                    <p-multiSelect id="ramID" name="ramID" formControlName="ramID" [selectionLimit]="1" [options]="ramList" [(ngModel)]="selectedRAM" optionLabel="ram_name"></p-multiSelect>
                 </td>
             </tr>
             <tr for="storageID" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -96,9 +88,7 @@
                     Storage
                 </th>
                 <td class="px-6 py-4">
-                    <select id="storageID" name="storageID" formControlName="storageID">
-                        <option *ngFor="let storage of storageList" [value]="storage.storage_name">{{ storage.storage_name }}</option>
-                    </select>
+                    <p-multiSelect id="storageID" name="storageID" formControlName="storageID" [selectionLimit]="1" [options]="storageList" [(ngModel)]="selectedStorage" optionLabel="storage_name"></p-multiSelect>
                 </td>
             </tr>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -106,19 +96,15 @@
                     Power Supply
                 </th>
                 <td class="px-6 py-4">
-                    <select id="psuID" name="psuID" formControlName="psuID">
-                        <option *ngFor="let psu of psuList" [value]="psu.power_supply_name">{{ psu.power_supply_name }}</option>
-                    </select>
+                    <p-multiSelect id="psuID" name="psuID" formControlName="psuID" [selectionLimit]="1" [options]="psuList" [(ngModel)]="selectedPSU" optionLabel="power_supply_name"></p-multiSelect>
                 </td>
             </tr>
             <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th for="caseID" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     Case
                 </th>
-                <td class="px-6 py-4">
-                    <select id="caseID" name="caseID" formControlName="caseID">
-                        <option *ngFor="let case of caseList" [value]="case.case_name">{{ case.case_name }}</option>
-                    </select>
+                <td class="px-6 py-10">
+                    <p-multiSelect id="caseID" name="caseID" formControlName="caseID" [selectionLimit]="1" [options]="caseList" [(ngModel)]="selectedCase" optionLabel="case_name"></p-multiSelect>
                 </td>
             </tr>
         </tbody>

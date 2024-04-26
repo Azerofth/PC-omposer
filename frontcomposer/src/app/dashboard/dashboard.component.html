@@ -3,8 +3,8 @@
 </div>
 <div *ngIf="selectedItem == 1">
   <h3>Computer Builds by You</h3>
-    <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped p-datatable-gridlines" [showCurrentPageReport]="true" [rows]="7" [paginator]="true"
-    [resizableColumns]="true" [rowsPerPageOptions]="[5, 10, 20]">
+    <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped p-datatable-gridlines" [showCurrentPageReport]="true" [rows]="1" [paginator]="true"
+    [resizableColumns]="true">
       <ng-template pTemplate="header">
           <tr>
               <th>Components</th>

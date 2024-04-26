@@ -46,8 +46,6 @@ export class DashboardComponent implements OnInit {
   }
   getUser() {
     this.service.post('user/getUserData/', this.id).subscribe((data: any) => {
-      console.log(data);
-      
       this.updateGroup.patchValue({
         username: data.username,
         password: data.password,

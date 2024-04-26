@@ -25,7 +25,6 @@ def login_view(request):
                 response = JsonResponse({'token': token})
                 return response
             else:
-                print("Invalid username or password")
                 return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
         else:
             return JsonResponse({'status': 'failed', 'reason': 'Username or password not provided'}, status=400)
@@ -87,19 +86,12 @@ class userViewset(viewsets.ModelViewSet):
 def register_view(request):
     if request.method =='POST':
         data = json.loads(request.body.decode('utf-8'))
-        print(data)
         username= data.get('username')
         password = data.get('password')
         email = data.get('email')
         phone_number = data.get('phone_number')
         verification = data.get('verification')
-        print(f"Username: {username}")
-        print(f"Password: {password}")
-        print(f"Email: {email}")
-        print(f"Phone Number: {phone_number}")
-        print(f'Verification: {verification}')
         if email is not None and password is not None:
-            print(f"Welcome, {username}")
             if username and password and email:
                 # Create a new user object
                 new_user1 = ActUser.objects.create_user(
@@ -119,7 +111,6 @@ def register_view(request):
                 new_user2.save()
             return JsonResponse({'status': 'ok'})
         else:
-            print("Invalid username or password")
             return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
     else:
         return JsonResponse({'status': 'failed', 'reason': 'Invalid method'}, status=405)
@@ -130,20 +121,12 @@ def logout_view(request):
         logout(request)
         return JsonResponse({'status': 'ok'})
     else:
-        print("Logout failed")
         return JsonResponse({'status': 'failed', 'reason': 'Invalid username or password'}, status=401)
 
 
 class cpuViewset(viewsets.ModelViewSet):
     queryset = CPU.objects.all()
     serializer_class = CPUSerializer
-
-    def getCPU(self, request, *args, **kwargs):
-        cpuList = self.queryset.values()
-        for cpu in cpuList:
-            cpu = str(CPU.objects.get(['cpu_name_id']))
-            print(cpu)
-
 
 class gpuViewset(viewsets.ModelViewSet):
     queryset = GPU.objects.all()
@@ -219,18 +202,32 @@ class computerViewset(viewsets.ModelViewSet):
     def uploadComputer(self, request):
         data = json.loads(request.body.decode('utf-8'))
         cpu = data.get('cpuID')
+        cpufilter = cpu[0]
+        cpu= cpufilter['cpu_name']
         cpu_obj = CPU.objects.get(cpu_name=cpu)
         motherboard = data.get('motherboardID')
+        mbofilter = motherboard[0]
+        motherboard = mbofilter['motherboard_name']
         mbo_obj = Motherboard.objects.get(motherboard_name=motherboard)
         ram = data.get('ramID')
+        ramfilter = ram[0]
+        ram = ramfilter['ram_name']
         ram_obj = RAM.objects.get(ram_name=ram)
         storage = data.get('storageID')
+        storagefilter = storage[0]
+        storage = storagefilter['storage_name']
         storage_obj = Storage.objects.get(storage_name=storage)
         gpu = data.get('gpuID')
+        gpufilter = gpu[0]
+        gpu = gpufilter['gpu_name']
         gpu_obj = GPU.objects.get(gpu_name=gpu)
         psu = data.get('psuID')
+        psufilter = psu[0]
+        psu = psufilter['power_supply_name']
         psu_obj = PowerSupply.objects.get(power_supply_name=psu)
         case = data.get('caseID')
+        casefilter = case[0]
+        case = casefilter['case_name']
         case_obj = Case.objects.get(case_name=case)
         user = data.get('userID')
         user_obj = User.objects.get(user_id=user)
@@ -255,7 +252,6 @@ class computerViewset(viewsets.ModelViewSet):
         data = json.loads(request.body.decode('utf-8'))
         filter1 = self.queryset.filter(user_id=data)
         querylist = filter1.values()
-        print(querylist)
         computer_data = []
         try:
             for test in querylist:
@@ -291,9 +287,7 @@ class computerViewset(viewsets.ModelViewSet):
                     'case_spec': case_spec,
                     'likes': likes
                 })
-            print(computer_data)
             return Response(computer_data)
-            
         except:
             return Response('No data found')
     
