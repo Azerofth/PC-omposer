@@ -76,9 +76,9 @@ Disclaimer: This is a website used for the purpose of Final Year Project (FYP). 
 To get started, you first need to understand the project folder structure for installations.
 ```
 ├── backcomposer                 # Django, PostgreSQL backend folder
-├── datasets                     # Computer datasets folder
 ├── frontcomposer                # Angular website folder with image assets
 ├── .gitignore
+├── datasets.zip                 # Computer datasets folder (unzip first)
 ├── LICENSE
 └── README.md
 ```
