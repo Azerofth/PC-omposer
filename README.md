@@ -54,9 +54,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 PC-omposer is a web application that aims to teach users on how easy it is to build a computer and every one can do it too.
-It consists of a adventure based storyline that was heavily inspired by NZXT BLD Kit.
-A parts configurator that allows users to post their computers that they have "composed".
-A prototype prompt-to-build system where it takes the user's input and find specific words and display a machine that allows users to download a PDF copy of it.
+```
+1. It consists of a adventure based storyline that was heavily inspired by NZXT BLD Kit.
+2. A parts configurator that allows users to post their computers that they have "composed".
+3. A prototype prompt-to-build system where it takes the user's input and find specific words and display a machine that allows users to download a PDF copy of it.```
 Disclaimer: This is a website used for the purpose of Final Year Project (FYP). This project was generated with Angular CLI version 17.1.2 and Django 5.0.1.
 
 
