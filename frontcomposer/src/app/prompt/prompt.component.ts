@@ -72,7 +72,7 @@ export class PromptComponent implements OnInit {
     }
     else if (matchingKeywords.includes('fast') && matchingKeywords.includes('gaming')) {
       console.log('Both "fast" and "gaming" exist');
-      this.service.post('computer/getcomputer/', 3).subscribe(data => {
+      this.service.post('computer/getcomputer/', 4).subscribe(data => {
         this.computerList = Object.values(data);
       });
     }

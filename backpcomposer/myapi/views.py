@@ -290,6 +290,51 @@ class computerViewset(viewsets.ModelViewSet):
             return Response(computer_data)
         except:
             return Response('No data found')
+        
+    @action(detail=False, methods=['post'])
+    def getComputersList(self, request):
+        filter1 = self.queryset.all()
+        querylist = filter1.values()
+        computer_data = []
+        try:
+            for test in querylist:
+                cpu = str(CPU.objects.get(pk=test['cpu_name_id']))
+                cpu_spec = str(CPU.objects.get(pk=test['cpu_name_id']).cpu_performance)
+                motherboard = str(Motherboard.objects.get(pk=test['motherboard_id']))
+                motherboard_spec = str(Motherboard.objects.get(pk=test['motherboard_id']).motherboard_chipset)
+                ram = str(RAM.objects.get(pk=test['ram_id']))
+                ram_spec = str(RAM.objects.get(pk=test['ram_id']).ram_performance)
+                storage = str(Storage.objects.get(pk=test['storage_id']))
+                storage_spec = str(Storage.objects.get(pk=test['storage_id']).storage_capacity)
+                gpu = str(GPU.objects.get(pk=test['gpu_name_id']))
+                gpu_spec = str(GPU.objects.get(pk=test['gpu_name_id']).gpu_performance)
+                power_supply = str(PowerSupply.objects.get(pk=test['power_supply_id']))
+                power_supply_spec = str(PowerSupply.objects.get(pk=test['power_supply_id']).power_supply_wattage)
+                case = str(Case.objects.get(pk=test['case_id']))
+                case_spec = str(Case.objects.get(pk=test['case_id']).case_size)
+                user = str(User.objects.get(pk=test['user_id']))
+                likes = test['likes']
+                computer_data.append({
+                    'cpu_name': cpu,
+                    'cpu_spec': cpu_spec,
+                    'motherboard': motherboard,
+                    'motherboard_spec': motherboard_spec,
+                    'ram': ram,
+                    'ram_spec': ram_spec,
+                    'storage': storage,
+                    'storage_spec': storage_spec,
+                    'gpu_name': gpu,
+                    'gpu_spec': gpu_spec,
+                    'power_supply': power_supply,
+                    'power_supply_spec': power_supply_spec,
+                    'case': case,
+                    'case_spec': case_spec,
+                    'user': user,
+                    'likes': likes
+                })
+            return Response(computer_data)
+        except:
+            return Response('No data found')
     
         
         

@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="flex py-4">
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button label="Next" severity="success"(onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -112,7 +112,7 @@
                     <p-stepperPanel header="AMD">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     
@@ -146,7 +146,7 @@
                     <p-stepperPanel class="text-blue-600" header="Intel">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                    
@@ -195,7 +195,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button class="p-button-success" severity="success" label="Next" (onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -249,7 +249,6 @@
                                     exchange it.
                                     <img src="assets/adventure/IntelSocket1.png">
                                     <img src="assets/adventure/IntelSocket2.png">
-                                    
                                 </div>
                             </div>
                             <div class="flex pt-4 justify-content-between">
@@ -339,7 +338,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button label="Next" severity="success" (onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -451,7 +450,7 @@
                     <p-stepperPanel header="Air Cooling">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
-                            <div class="flex flex-column h-12rem">
+                            <div class="flex flex-column h-15rem">
                                 <div
                                     class="border-2  surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     You have chosen the path of the wind, the room was filled with a cool breeze.
@@ -503,7 +502,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button label="Next" severity="success" (onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -707,7 +706,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button label="Next" severity="success" (onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -723,7 +722,7 @@
                 <p-stepper orientation="vertical">
                     <p-stepperPanel header="Cables">
                         <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
-                            <div class="flex flex-column h-18rem">
+                            <div class="flex flex-column h-25rem">
                                 <div
                                     class="border-2 surface-border border-round surface-ground flex-auto flex justify-content-center align-items-center font-medium">
                                     As you install the power supply, you realised that you were not alone. 
@@ -734,6 +733,7 @@
                                     <br/>
                                     [Please consult your motherboard manual to know where to connect the cables.]
                                     <img src="assets/adventure/CableManage.png">
+                                    <br/>
                                     <img src="assets/adventure/MBOManual.png">
                                 </div>
                             </div>
@@ -831,7 +831,7 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Installing the GPU">
+                    <p-stepperPanel header="Installing the GPU 1">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
                             let-index="index">
                             <div class="flex flex-column h-25rem">
@@ -852,7 +852,7 @@
                             </div>
                         </ng-template>
                     </p-stepperPanel>
-                    <p-stepperPanel header="Header">
+                    <p-stepperPanel header="Installing the GPU 2">
                         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
                             <div class="flex flex-column h-16rem">
                                 <div
@@ -875,7 +875,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Next" (onClick)="nextCallback.emit()" />
+                <p-button label="Next" severity="success" (onClick)="nextCallback.emit()" />
             </div>
         </ng-template>
     </p-stepperPanel>
@@ -972,7 +972,7 @@
             </div>
             <div class="flex py-4 gap-2">
                 <p-button label="Back" severity="secondary" (onClick)="prevCallback.emit()" />
-                <p-button label="Survey" severity="primary" (onClick)="doSurvey()" />
+                <p-button label="Survey" severity="help" (onClick)="doSurvey()" />
             </div>
         </ng-template>
     </p-stepperPanel>

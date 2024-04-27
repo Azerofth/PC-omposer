@@ -19,7 +19,7 @@
 
 <router-outlet></router-outlet>
 
-<footer class="surface-section py-6 flex flex-column sm:flex-row align-items-center justify-content-between">
+<footer *ngIf="router.url !== '/partspicker'" class="surface-section py-6 flex flex-column sm:flex-row align-items-center justify-content-between">
   <div class="flex flex-nowap font-medium">
     <a routerLink="/home" routerLinkActive="active-link"
       class="no-underline flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">

@@ -26,19 +26,87 @@
         </div>
     </div>
 </div>
-<div class="grid grid-cols-2 gap-4 place-content-stretch h-48">
-    <div class="grid grid-nogutter surface-section text-400">
-        <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
-            <section>
-                <form class="card flex justify-content-center" [formGroup]="promptForm" (ngSubmit)="onSubmit()">
-                    <div class="flex form-group p-float-label space-x-4">
-                        <input pInputText id="prompt" formControlName="prompt" class="form-control"
-                            class="w-full md:w-30rem">
-                        <label for="prompt">Beta testing prompt-to-build</label>
-                    </div>
-                    <button pButton pRipple label="Try now!" class="w-full p-3 text-xl" type="submit"></button>
-                </form>
-            </section>
-        </div>
-    </div>
+<div>
+    <h3>Latest Computer Builds</h3>
+    <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }"
+        styleClass="p-datatable-striped p-datatable-gridlines" [showCurrentPageReport]="true" [rows]="1"
+        [paginator]="true" [resizableColumns]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Components</th>
+                <th>Model Name</th>
+                <th>Specifcation</th>
+                <th>Amount</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-computer>
+            <tr>
+                <td>CPU</td>
+                <td>{{ computer.cpu_name }}</td>
+                <td>Score: {{ computer.cpu_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>GPU</td>
+                <td>{{ computer.gpu_name}}</td>
+                <td>Score: {{ computer.gpu_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Motherboard</td>
+                <td>{{ computer.motherboard }}</td>
+                <td>Chipset: {{ computer.motherboard_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>RAM</td>
+                <td>{{ computer.ram }}</td>
+                <td>{{ computer.ram_spec }} Mhz</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Storage</td>
+                <td>{{ computer.storage }}</td>
+                <td>Capacity: {{ computer.storage_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Power Supply</td>
+                <td>{{ computer.power_supply }}</td>
+                <td>Wattage: {{ computer.power_supply_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Case</td>
+                <td>{{ computer.case }}</td>
+                <td>Size: {{ computer.case_spec }}</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Total Likes</td>
+                <td></td>
+                <td></td>
+                <td>{{ computer.likes }}</td>
+            </tr>
+            <tr>
+                <td>Username: {{ computer.user }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+
+<div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+    <section>
+        <form class="card flex justify-content-center" [formGroup]="promptForm" (ngSubmit)="onSubmit()">
+            <div class="flex form-group p-float-label space-x-4">
+                <input pInputText id="prompt" formControlName="prompt" class="form-control" class="w-full md:w-30rem">
+                <label for="prompt">Beta testing prompt-to-build</label>
+            </div>
+            <button pButton pRipple label="Try now!" class="w-full p-3 text-xl" type="submit"></button>
+        </form>
+    </section>
 </div>

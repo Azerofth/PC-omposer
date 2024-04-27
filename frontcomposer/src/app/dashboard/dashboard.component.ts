@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   tokenID = parseInt(localStorage.getItem('token') || '');
   
   id: number = this.tokenID +1; //admin is 1 so any other users will be +1 of it.
-  constructor(private formBuilder: FormBuilder, private service: SharedService, private route: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private formBuilder: FormBuilder, private service: SharedService, private router: Router, private activatedRoute: ActivatedRoute) {
     
     this.updateGroup = this.formBuilder.group({
       username: ['', Validators.required],
@@ -38,11 +38,14 @@ export class DashboardComponent implements OnInit {
     this.selectedItem = item;
     this.activeItem = this.menuItems[item - 1];
   }
-  ngOnInit() {
-    this.service.post('computer/getUserComputers/', this.id).subscribe((data: any) => {
-      this.computerList = Object.values(data);
-    });
-    this.getUser();
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    if (token == null) {
+      alert('Please login to access this page');
+      this.router.navigate(['/login']);
+      return false;
+    }
+    return true;
   }
   getUser() {
     this.service.post('user/getUserData/', this.id).subscribe((data: any) => {
@@ -57,7 +60,7 @@ export class DashboardComponent implements OnInit {
     if (this.updateGroup.valid) {
       this.service.patch('user/' + this.id + '/', this.updateGroup.value).subscribe((data: any) => {
         this.service.post('user/updateUser/', this.updateGroup.value).subscribe((data: any) => {
-          this.route.navigate(['dashboard']);
+          this.router.navigate(['dashboard']);
         }
         );
       });
@@ -65,6 +68,13 @@ export class DashboardComponent implements OnInit {
     else {
       alert('Please fill out all fields');
     }
+  }
+  ngOnInit() {
+    this.service.post('computer/getUserComputers/', this.id).subscribe((data: any) => {
+      this.computerList = Object.values(data);
+    });
+    this.getUser();
+    this.isLoggedIn();
   }
 }
 

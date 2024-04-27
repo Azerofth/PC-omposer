@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Router } from '@angular/router';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +12,20 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   promptForm: FormGroup;
-  messages: Message[] | undefined;
-  addMessages() {
-    this.messages = [
-        { severity: 'error', summary: 'Error', detail: 'Message Content' }
-    ];
-}
+ 
+  
   constructor(
     private primengConfig: PrimeNGConfig,  
     private formBuilder: FormBuilder,
     private router: Router,
+    private service: SharedService
   ){
+    
     this.promptForm = this.formBuilder.group({
       prompt: ['', Validators.required],
     });
   }
+  
   onSubmit(){
     const promptValue = this.promptForm.value.prompt;
     if (promptValue == null || promptValue == '') {
@@ -43,7 +43,11 @@ export class HomeComponent {
     }
     return true;
   }
+  computerList!: any[];
   ngOnInit() {
     this.primengConfig.ripple = true;
+    this.service.post("computer/getComputersList/").subscribe((data: any) => {
+      this.computerList = Object.values(data);
+    });
 }
 }

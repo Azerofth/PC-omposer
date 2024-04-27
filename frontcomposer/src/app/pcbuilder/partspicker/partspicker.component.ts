@@ -66,6 +66,15 @@ export class PartspickerComponent {
       userID: [this.tokenID + 1]
     });
    }
+   isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    if (token == null) {
+      alert('Please login to access this page');
+      this.router.navigate(['/login']);
+      return false;
+    }
+    return true;
+  }
   onSubmit() {
     if (this.computerForm.valid) {
       this.service.post('computer/uploadComputer/', this.computerForm.value).subscribe(data => {
@@ -98,5 +107,6 @@ export class PartspickerComponent {
   this.service.get('case/').subscribe(data => {
     this.caseList = Object.values(data);
   });
+  this.isLoggedIn();
 }
 }
