@@ -44,7 +44,6 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -54,56 +53,67 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 PC-omposer is a web application that aims to teach users on how easy it is to build a computer and every one can do it too.
+Disclaimer: This is a website used for the purpose of Final Year Project (FYP). This project was generated with [Angular CLI version 17.1.2]() and [Django 5.0.1]().
+
+## Features
 ```
 1. It consists of a adventure based storyline that was heavily inspired by NZXT BLD Kit.
 2. A parts configurator that allows users to post their computers that they have "composed".
 3. A prototype prompt-to-build system where it takes the user's input and find specific words 
   and display a machine that allows users to download a PDF copy of it.
 ```
-Disclaimer: This is a website used for the purpose of Final Year Project (FYP). This project was generated with Angular CLI version 17.1.2 and Django 5.0.1.
-
-
 
 ### Built With
 
-* [![Angular][Angular.io]][Angular-url]
+* [![Angular]][Angular-url]
+* [![Django]][Django-url]
+* [![PostgreSQL]][PostgreSQL-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![Django][Django.com]][Django-url]
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
 To get started, you first need to understand the project folder structure for installations.
+```
+├── backcomposer                 # Django, PostgreSQL backend folder
+├── datasets                     # Computer datasets folder
+├── frontcomposer                # Angular website folder with image assets
+├── .gitignore
+├── LICENSE
+└── README.md
+```
 
 ### Prerequisites
 
-├── backcomposer                 # Django, PostgreSQL backend folder
-├── frontcomposer                # Angular website folder with image assets
-├── .gitignore
-└── README.md
-
-This project needs two separate terminals to run the Angular server and the Django server.
-
+Ensure that you have the following installed
+* [PostgreSQL](https://www.postgresql.org/download/)
+* [Node.js](https://nodejs.org/en/download/)
+* [Python](https://www.python.org/downloads/)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo and install the dependencies for the Frontend (Angular Project)
    ```sh
-   git clone https://github.com/Azerofth/PC-omposer.git
+   git clone https://github.com/Azerofth/PC-omposer.git && cd frontcomposer && npm install
    ```
-3. Install NPM packages
+3. Locate to the Backend directory and install dependencies
    ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   cd backcomposer
+   pip install -r requirements.txt
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Set up
+This project needs two separate terminals to run the Angular server and the Django server.
+1. In the frontcomposer directory, run `ng serve --open` in a terminal. Any changes to the source files will automatically refresh the application
+2. Open pgAdmin 4 and login with your credentials. Create a new database named `pc-omposer` and keep everything defaulted. (Minimise pgAdmin 4)
+3. In the backcomposer directory, go to the `settings.py` file. Scroll until you see DATABASES. Change your USERNAME, PASSWORD to what you had setup during the PostgreSQL installation.
+5. Open a new terminal in the same IDE window, and run `py manage.py makemigrations` to create the models to be migrated into PostgreSQL and run `py manage.py migrate`.
+6. Create a super user with `py manage.py createsuperuser` (This is for admin)
+7. Go back to pgAdmin 4 and follow the steps accordingly `pc-omposer > Schemas > public > tables`.
+8. You should now see alot of tables, the data we are importing will be for the tables that have `myapi` in front of them.
+9. Example: Right click on `myapi_cpu > import/export data`. Choose import and locate the data csv name `CPU_Data` for filename. REMEMBER: Go to columns tab in pgAdmin and remove 'cpu_id'.
+10. Repeat step 8-9 for every file that has `myapi` except `my_api_user` and `my_api_computer` 
+11. Once completed, run `py manage.py runserver`. Backend is ready when `Starting development server at http://127.0.0.1:8000 ` is shown in the terminal.
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -140,3 +150,13 @@ The following materials are the ones that allowed this project to be completed
 * [UserBenchmark Dataset](https://www.userbenchmark.com/page/developer)
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt)
 * [NZXT BLD Guidebook](https://www.datocms-assets.com/34299/1634612699-bld-kit-illustrated-guidebook.pdf)
+
+[Angular]: https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[Django]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
+[Django-url]: https://www.djangoproject.com/
+[PostgreSQL]: https://img.shields.io/badge/postgresql-%23336791.svg?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]:https://www.postgresql.org/
+
