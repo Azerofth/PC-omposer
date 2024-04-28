@@ -79,7 +79,7 @@ export class PartspickerComponent {
     if (this.computerForm.valid) {
       this.service.post('computer/uploadComputer/', this.computerForm.value).subscribe(data => {
       });
-      this.router.navigate(['/prompt'])
+      this.router.navigate(['/dashboard'])
     } else {
       console.log("No data passed");
       alert('Please select all parts');
