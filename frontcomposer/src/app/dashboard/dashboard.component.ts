@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuItem } from 'primeng/api';
 import { SharedService } from '../services/shared.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
 
 
 @Component({
@@ -60,6 +62,7 @@ export class DashboardComponent implements OnInit {
     if (this.updateGroup.valid) {
       this.service.patch('user/' + this.id + '/', this.updateGroup.value).subscribe((data: any) => {
         this.service.post('user/updateUser/', this.updateGroup.value).subscribe((data: any) => {
+          alert('User updated successfully');
           this.router.navigate(['dashboard']);
         }
         );
@@ -75,6 +78,23 @@ export class DashboardComponent implements OnInit {
     });
     this.getUser();
     this.isLoggedIn();
+  }
+  public convetToPDF() {
+    var data = document.getElementById('contentToConvert');
+    if (data) {
+      html2canvas(data).then(canvas => {
+        // Few necessary setting options
+        var imgWidth = 208;
+        var pageHeight = 295;
+        var imgHeight = canvas.height * imgWidth / canvas.width;
+        var heightLeft = imgHeight;
+        const contentDataURL = canvas.toDataURL('image/png')
+        let pdf = new jspdf('l', 'mm', 'a5'); // A4 size page of PDF
+        var position = 0;
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+        pdf.save('computer_spec.pdf'); // Generated PDF
+      });
+    }
   }
 }
 

@@ -27,8 +27,8 @@
     </div>
 </div>
 <div>
-    <h3>Latest Computer Builds</h3>
-    <p-table [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }"
+    <h3>Latest Computer Composed</h3>
+    <p-table  id="contentToConvert" [value]="computerList" [tableStyle]="{ 'min-width': '50rem' }"
         styleClass="p-datatable-striped p-datatable-gridlines" [showCurrentPageReport]="true" [rows]="1"
         [paginator]="true" [resizableColumns]="true">
         <ng-template pTemplate="header">
@@ -96,6 +96,7 @@
             </tr>
         </ng-template>
     </p-table>
+    <button pButton pRipple label="Save this build!" class=" p-3 text-xl" (click)="convetToPDF()"></button>
 </div>
 
 
