@@ -13,9 +13,7 @@
   <a href="https://github.com/Azerofth/PC-omposer">
     <img src="frontcomposer/src/assets/logo/PC-omposer logo.png" alt="Logo" width="80" height="80">
   </a>
-
   <h3 align="center">PC-omposer</h3>
-
   <p align="center">
    Learn to build your computer like how musicians compose their music!
   </p>
@@ -38,9 +36,9 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#setup">Setup</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -102,7 +100,7 @@ Ensure that you have the following installed
    pip install -r requirements.txt
    ```
 
-## Set up
+## Setup
 This project needs two separate terminals to run the Angular server and the Django server.
 1. In the frontcomposer directory, run `ng serve --open` in a terminal. Any changes to the source files will automatically refresh the application
 2. Open pgAdmin 4 and login with your credentials. Create a new database named `pc-omposer` and keep everything defaulted. (Minimise pgAdmin 4)
