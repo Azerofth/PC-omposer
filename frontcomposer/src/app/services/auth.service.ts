@@ -14,12 +14,12 @@ export class AuthService {
           localStorage.removeItem('token');
           this.router.navigate(['logout/']);
         } else {
-          alert("wtf logout fail again");
+          alert("Backend Offline");
         }
       },
       (error) => {
         console.log(error);
-        alert("Logout fail?");
+        alert(error.message);
       }
     );  
   }

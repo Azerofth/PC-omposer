@@ -1,42 +1,5 @@
 <button pButton pRipple label="Back" routerLink="/pcbuilderhome"></button>
 
-
-    <!-- <label for="cpuID">CPU:</label>
-    <select id="cpuID" name="cpuID" formControlName="cpuID">
-        <option *ngFor="let cpu of cpuList" [value]="cpu.cpu_name">{{ cpu.cpu_name }}</option>
-    </select>
-    <br/>
-    <label for="gpuID">GPU:</label>
-    <select id="gpuID" name="gpuID" formControlName="gpuID">
-        <option *ngFor="let gpu of gpuList" [value]="gpu.gpu_name" >{{ gpu.gpu_name }}</option>
-    </select>
-    <br/>
-    <label for="motherboardID">Motherboard:</label>
-    <select id="motherboardID" name="motherboardID" formControlName="motherboardID">
-        <option *ngFor="let motherboard of motherboardList" [value]="motherboard.motherboard_name" >{{ motherboard.motherboard_name }}</option>
-    </select>
-    <br/>
-    <label for="ramID">RAM:</label>
-    <select id="ramID" name="ramID" formControlName="ramID">
-        <option *ngFor="let ram of ramList" [value]="ram.ram_name">{{ ram.ram_name }}</option>
-    </select>
-    <br/>
-    <label for="storageID">Storage:</label>
-    <select id="storageID" name="storageID" formControlName="storageID">
-        <option *ngFor="let storage of storageList" [value]="storage.storage_name">{{ storage.storage_name }}</option>
-    </select>
-    <br/>
-    <label for="psuID">Power Supply:</label>
-    <select id="psuID" name="psuID" formControlName="psuID">
-        <option *ngFor="let psu of psuList" [value]="psu.power_supply_name">{{ psu.power_supply_name }}</option>
-    </select>
-    <br/>
-    <label for="caseID">Case:</label>
-    <select id="caseID" name="caseID" formControlName="caseID">
-        <option *ngFor="let case of caseList" [value]="case.case_name">{{ case.case_name }}</option>
-    </select>
-    <br/> -->
-
 <form [formGroup]="computerForm" (ngSubmit)="onSubmit()">
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
