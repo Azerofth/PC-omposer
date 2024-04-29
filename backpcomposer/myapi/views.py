@@ -4,9 +4,9 @@ from django.http import JsonResponse
 from .models import *
 from django.contrib.auth.models import User as ActUser
 from .serializer import *
-from rest_framework import viewsets
-from rest_framework.response import Response
-from rest_framework.decorators import action
+from rest_framework import viewsets # type: ignore
+from rest_framework.response import Response # type: ignore
+from rest_framework.decorators import action # type: ignore
 from django.views.decorators.csrf import csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
@@ -97,12 +97,12 @@ def register_view(request):
                 new_user1 = ActUser.objects.create_user(
                     username=username,
                     email=email,
-                    password=password,  # You should hash the password before saving it to the database
+                    password=password,
                 )
                 new_user2 = User.objects.create(
                     username=username,
                     email=email,
-                    password=password,  # You should hash the password before saving it to the database
+                    password=password,
                     phone_number=phone_number,
                     verification=verification
                 )
