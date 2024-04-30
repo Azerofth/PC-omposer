@@ -36,7 +36,7 @@ addUser() {
       console.log(data)
       if (data === 'ok') {
         this.service.post('register/', this.registrationForm.value).subscribe(data => {
-          console.log(data);
+          alert("User registered successfully, please login to your account.")
           this.route.navigate(['/login'])
         })
       }

@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     })
   }
   computerList!: any[];
-
+  confirm! : string[];
   selectedItem: number = 1;
   selectItem(item: number) {
     this.selectedItem = item;
@@ -62,8 +62,11 @@ export class DashboardComponent implements OnInit {
     if (this.updateGroup.valid) {
       this.service.patch('user/' + this.id + '/', this.updateGroup.value).subscribe((data: any) => {
         this.service.post('user/updateUser/', this.updateGroup.value).subscribe((data: any) => {
-          alert('User updated successfully');
-          this.router.navigate(['dashboard']);
+          this.confirm = Object.values(data);
+          if (this.confirm[0] == 'ok') {
+            alert('User updated successfully');
+            this.router.navigate(['dashboard']);
+          }
         }
         );
       });
@@ -79,6 +82,7 @@ export class DashboardComponent implements OnInit {
     this.getUser();
     this.isLoggedIn();
   }
+
   public convetToPDF() {
     var data = document.getElementById('contentToConvert');
     if (data) {
