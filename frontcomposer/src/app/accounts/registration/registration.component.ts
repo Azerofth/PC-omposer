@@ -28,7 +28,6 @@ export class RegistrationComponent {
 
   ngOnInit() {
     this.primengConfig.ripple = true;
-    this.addUser();
 }
 addUser() {
   console.log(this.registrationForm)
@@ -49,6 +48,7 @@ addUser() {
     );
   }
   else {
+    alert("Please fill in all fields")
     console.log("No data passed")
   }
 }
